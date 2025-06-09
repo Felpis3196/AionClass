@@ -1,0 +1,6 @@
+@AionClass.Backend_HostAddress = http://localhost:5163
+
+GET {{AionClass.Backend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

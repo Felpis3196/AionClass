@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AionClass.Backend",
+    "\\AionClass.Backend\\Controllers",
+    "\\AionClass.Backend\\Data",
+    "\\AionClass.Backend\\DTOs\\Auth",
+    "\\AionClass.Backend\\Models",
+    "\\AionClass.Backend\\Services\\Implementations"
+  ],
+  "SelectedNode": "\\AionClass.Backend\\Data\\ApplicationDbContext.cs",
+  "PreviewInSolutionExplorer": false
+}
