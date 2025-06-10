@@ -14,13 +14,6 @@ namespace AionClass.Backend.Data
         {
             base.OnModelCreating(builder);
 
-            // Configuração da relação ApplicationUser -> Matriculas (1:N)
-            builder.Entity<Matricula>()
-                .HasOne(m => m.ApplicationUser)
-                .WithMany(u => u.Matriculas)
-                .HasForeignKey(m => m.ApplicationUserId)
-                .OnDelete(DeleteBehavior.Cascade);
-
             // Restringe o tamanho de Role e PerfilUsuario (opcional)
             builder.Entity<ApplicationUser>()
                 .Property(u => u.Role)

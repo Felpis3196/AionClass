@@ -66,6 +66,7 @@ namespace AionClass.Backend.Services.Implementations
 
             var user = new ApplicationUser
             {
+                Id = Guid.NewGuid().ToString(),
                 UserName = request.Email,
                 Email = request.Email,
                 Avatar = request.Avatar,

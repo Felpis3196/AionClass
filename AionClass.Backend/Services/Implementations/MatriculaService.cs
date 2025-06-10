@@ -1,7 +1,7 @@
 ﻿using AionClass.Backend.Data;
 using AionClass.Backend.Models;
 using AionClass.Backend.Services.Interfaces;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace AionClass.Backend.Services.Implementations
 {
@@ -17,14 +17,12 @@ namespace AionClass.Backend.Services.Implementations
         public async Task<IEnumerable<Matricula>> ObterTodasAsync()
         {
             return await _context.Matriculas
-                .Include(m => m.ApplicationUser)
                 .ToListAsync();
         }
 
         public async Task<Matricula> ObterPorIdAsync(int id)
         {
             return await _context.Matriculas
-                .Include(m => m.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
         }
 
@@ -32,13 +30,13 @@ namespace AionClass.Backend.Services.Implementations
         {
             return await _context.Matriculas
                 .Where(m => m.ApplicationUserId == usuarioId)
-                .Include(m => m.ApplicationUser)
                 .ToListAsync();
         }
 
         public async Task<Matricula> CriarAsync(Matricula matricula)
         {
             _context.Matriculas.Add(matricula);
+            matricula.DataMatricula = matricula.DataMatricula.ToUniversalTime();
             await _context.SaveChangesAsync();
             return matricula;
         }

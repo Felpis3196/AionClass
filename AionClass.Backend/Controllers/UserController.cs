@@ -25,7 +25,7 @@ namespace AionClass.Backend.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(string id)
         {
             var user = await _userService.ObterPorIdAsync(id);
             if (user == null)
@@ -35,7 +35,7 @@ namespace AionClass.Backend.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
             var sucesso = await _userService.DeletarAsync(id);
             if (!sucesso)
@@ -45,7 +45,7 @@ namespace AionClass.Backend.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] ApplicationUser userAtualizado)
+        public async Task<IActionResult> Update(string id, [FromBody] ApplicationUser userAtualizado)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);

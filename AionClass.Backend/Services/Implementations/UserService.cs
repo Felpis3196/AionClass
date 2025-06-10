@@ -1,7 +1,7 @@
 ﻿using AionClass.Backend.Data;
 using AionClass.Backend.Models;
 using AionClass.Backend.Services.Interfaces;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace AionClass.Backend.Services.Implementations
 {
