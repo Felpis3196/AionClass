@@ -24,6 +24,7 @@ namespace AionClass.Backend.Controllers
             return Ok(user);
         }
 
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {

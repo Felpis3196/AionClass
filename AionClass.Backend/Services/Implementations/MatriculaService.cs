@@ -31,7 +31,7 @@ namespace AionClass.Backend.Services.Implementations
             return await _context.Matriculas
                 .Where(m => m.ApplicationUserId == usuarioId)
                 .ToListAsync();
-        }
+        }           
 
         public async Task<Matricula> CriarAsync(Matricula matricula)
         {
@@ -68,7 +68,8 @@ namespace AionClass.Backend.Services.Implementations
 
         public async Task<bool> UsuarioPossuiMatriculaAsync(string usuarioId, string curso)
         {
-            return await _context.Matriculas.AnyAsync(m => m.ApplicationUserId == usuarioId && m.Curso == curso);
+            return await _context.Matriculas.AnyAsync(m => m.ApplicationUserId == usuarioId && m.Curso.Title == curso);
         }
     }
 }
+ 

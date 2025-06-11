@@ -61,6 +61,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IMatriculaService, MatriculaService>();
+builder.Services.AddScoped<ICursoService, CursoService>();
 
 var app = builder.Build();
 

@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AionClass.Backend.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    //[Authorize]
+        [ApiController]
+        [Route("api/[controller]")]
+        //[Authorize]
     public class MatriculasController : ControllerBase
     {
         private readonly IMatriculaService _matriculaService;
