@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Perguntas Frequentes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/faq.css" />
+</head>
+<body>
+    <section class="w-100">
+        <div class="d-flex justify-content-evenly">
+            <div class="m-5">
+                <div style="text-align: left;">
+                    <div class="badge">FAQ</div>
+                    <h1>Perguntas e respostas <br /> mais frequentes</h1>
+                </div>
+            </div>
+            <div class="m-5">
+                <ul class="faq-list m-5 w-100">
+                    <li>
+                        <button class="faq-question">
+                            <span>01.</span> O que é a AionClass?
+                        </button>
+                        <div class="faq-answer">
+                            A AionClass é uma plataforma online para aprendizado em programação, com cursos focados na prática.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-question">
+                            <span>02.</span> Para quem é?
+                        </button>
+                        <div class="faq-answer">
+                            A plataforma é para iniciantes e profissionais que querem aprimorar suas habilidades.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-question">
+                            <span>03.</span> O que você encontra na plataforma?
+                        </button>
+                        <div class="faq-answer">
+                            Cursos, exercícios práticos, projetos e suporte da comunidade.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-question">
+                            <span>04.</span> Como funciona a assinatura?
+                        </button>
+                        <div class="faq-answer">
+                            A assinatura é mensal, com acesso ilimitado a todos os cursos e materiais disponíveis na plataforma.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-question">
+                            <span>05.</span> Por onde começo a estudar?
+                        </button>
+                        <div class="faq-answer">
+                            Recomendamos começar pelo curso introdutório para entender os fundamentos básicos da programação.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-question">
+                            <span>06.</span> Qual a duração?
+                        </button>
+                        <div class="faq-answer">
+                            A duração dos cursos varia, mas a maioria pode ser concluída em algumas semanas, dependendo do ritmo do aluno.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-question">
+                            <span>07.</span> Qual o valor?
+                        </button>
+                        <div class="faq-answer">
+                            O valor da assinatura é acessível e pode ser consultado diretamente na página de preços da plataforma.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-question">
+                            <span>08.</span> Tem certificado?
+                        </button>
+                        <div class="faq-answer">
+                            Sim, todos os cursos oferecem certificado de conclusão reconhecido no mercado.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-question">
+                            <span>09.</span> E se eu não gostar?
+                        </button>
+                        <div class="faq-answer">
+                            Oferecemos garantia de reembolso nos primeiros 7 dias após a assinatura, sem burocracia.
+                        </div>
+                    </li>
+                    <li>
+                        <button class="faq-question">
+                            <span>10.</span> Ainda estou com dúvidas…
+                        </button>
+                        <div class="faq-answer">
+                            Entre em contato pelo WhatsApp ou pelo nosso suporte para tirar todas as suas dúvidas.
+                        </div>
+                    </li>
+                </ul>
+                <div class="whatsapp-box m-5 w-100">
+                    <div class="d-flex flex-column justify-content-start me-2">
+                        <div class="whatsapp-icon">💬</div>
+                        <div class="whatsapp-text text-start">
+                            <strong>Ficou com alguma dúvida?</strong>
+                            Envie uma mensagem e converse <br /> com uma pessoa real.
+                        </div>
+                    </div>
+                    <button class="btn-whatsapp pt-3 pb-3 pe-2 ps-2 ms-2">CHAMAR NO WHATSAPP</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+          button.addEventListener('click', () => {
+            const isActive = button.classList.contains('active');
+            document.querySelectorAll('.faq-question').forEach(btn => btn.classList.remove('active'));
+            if (!isActive) {
+              button.classList.add('active');
+            }
+          });
+        });
+    </script>
+</body>
+</html>

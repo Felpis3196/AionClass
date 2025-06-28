@@ -144,3 +144,4 @@ C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\net9.0\AionClass.Backend.genruntimeconfig.cache
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\net9.0\ref\AionClass.Backend.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\net9.0\AionClass.Backend.sourcelink.json
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

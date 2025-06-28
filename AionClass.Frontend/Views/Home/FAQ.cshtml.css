@@ -1,0 +1,176 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: none !important;
+}
+
+html, body, .main {
+    background-image: none !important;
+    background-color: #09090A;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    padding: 50px;
+}
+
+.badge {
+    display: inline-block;
+    background-color: #1e1e1e;
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.faq-list {
+    list-style: none;
+    max-width: 600px;
+}
+
+    .faq-list li {
+        border-bottom: 1px solid #333;
+        padding: 16px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #ccc;
+    }
+
+        .faq-list li span {
+            color: #6f6f6f;
+            margin-right: 10px;
+        }
+
+        .faq-list li:hover {
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .faq-list li::after {
+            content: "▾";
+            color: #666;
+            font-size: 12px;
+        }
+
+.whatsapp-box {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 50px;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+    .whatsapp-box .left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.whatsapp-text {
+    font-size: 14px;
+    color: #ccc;
+}
+
+    .whatsapp-text strong {
+        display: block;
+        color: #fff;
+    }
+
+.btn-whatsapp {
+    background: #00ffb3;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+    .btn-whatsapp:hover {
+        background: #00e6a0;
+    }
+
+.faq-list li {
+    display: block; /* remover flex para dropdown funcionar */
+    cursor: default;
+    position: relative;
+    color: #ccc;
+    padding: 16px 0;
+    border-bottom: 1px solid #333;
+}
+
+.faq-question {
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+    .faq-question span:first-child {
+        color: #6f6f6f;
+        min-width: 30px;
+        display: inline-block;
+    }
+
+    .faq-question::after {
+        content: "▾";
+        color: #666;
+        font-size: 12px;
+        margin-left: auto;
+        transition: transform 0.3s ease;
+        display: inline-block;
+    }
+
+    .faq-question.active::after {
+        transform: rotate(180deg);
+    }
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    color: #aaa;
+    font-weight: 400;
+    padding-left: 40px;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    margin-top: 8px;
+}
+
+.faq-question.active + .faq-answer {
+    max-height: 300px; /* suficiente para conteúdo */
+    padding-top: 8px;
+    padding-bottom: 8px;
+}

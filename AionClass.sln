@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AionClass.Backend", "AionClass.Backend\AionClass.Backend.csproj", "{5C15ACB8-6951-A63F-FD44-0FCB16CF6C8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AionClass.Frontend", "AionClass.Frontend\AionClass.Frontend.csproj", "{4D6ECDAC-5971-7FE9-EF56-FF564C6EC67C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AionClass.Frontend", "AionClass.Frontend\AionClass.Frontend.csproj", "{5C7938A2-1881-4636-9986-B1329CA9ECCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5C15ACB8-6951-A63F-FD44-0FCB16CF6C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C15ACB8-6951-A63F-FD44-0FCB16CF6C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C15ACB8-6951-A63F-FD44-0FCB16CF6C8E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D6ECDAC-5971-7FE9-EF56-FF564C6EC67C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D6ECDAC-5971-7FE9-EF56-FF564C6EC67C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D6ECDAC-5971-7FE9-EF56-FF564C6EC67C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D6ECDAC-5971-7FE9-EF56-FF564C6EC67C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C7938A2-1881-4636-9986-B1329CA9ECCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C7938A2-1881-4636-9986-B1329CA9ECCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C7938A2-1881-4636-9986-B1329CA9ECCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C7938A2-1881-4636-9986-B1329CA9ECCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
