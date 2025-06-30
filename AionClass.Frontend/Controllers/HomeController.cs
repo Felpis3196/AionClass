@@ -27,7 +27,7 @@ namespace AionClass.Frontend.Controllers
             return View();
         }
 
-          public IActionResult Cursos() // <--- Este já deve existir
+        public IActionResult Cursos() // <--- Este já deve existir
         {
             return View();
         }
