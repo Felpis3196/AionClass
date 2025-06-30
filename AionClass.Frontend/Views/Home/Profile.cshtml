@@ -1,0 +1,154 @@
+@{
+    ViewData["Title"] = "Meu Perfil";
+    ViewData["BodyClass"] = "profile-page-body"; // Classe para o body desta página
+    Layout = "_Layout";
+}
+
+<div class="profile-container">
+    <aside class="profile-sidebar">
+        <div class="profile-header-summary">
+            <div class="profile-avatar">
+                <i class="fas fa-user-circle"></i> @* Ícone de usuário para o avatar *@
+            </div>
+            <h2 class="profile-username">Nome do Usuário</h2>
+            <p class="profile-welcome-message">Bem-vindo(a) de volta!</p>
+        </div>
+
+        <nav class="profile-nav">
+            <ul>
+                <li><a href="#my-profile" class="profile-nav-item active" data-section="my-profile"><i class="fas fa-id-card"></i> Meu Perfil</a></li>
+                <li><a href="#my-courses" class="profile-nav-item" data-section="my-courses"><i class="fas fa-book-open"></i> Meus Cursos</a></li>
+                <li><a href="#my-plan" class="profile-nav-item" data-section="my-plan"><i class="fas fa-crown"></i> Meu Plano</a></li>
+                <li><a href="#security" class="profile-nav-item" data-section="security"><i class="fas fa-lock"></i> Segurança</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="profile-content">
+        <section id="my-profile" class="profile-section active">
+            <h3 class="section-title">Meu Perfil</h3>
+            <p class="section-description">Gerencie suas informações pessoais.</p>
+
+            <form class="profile-form">
+                <div class="form-group">
+                    <label for="fullName">Nome Completo</label>
+                    <input type="text" id="fullName" value="Felipe Silva" placeholder="Seu nome completo" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="felipe.silva@example.com" placeholder="Seu endereço de email" disabled /> 
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" value="(11) 98765-4321" placeholder="Seu telefone" />
+                </div>
+                <button type="submit" class="save-button">Salvar Alterações</button>
+            </form>
+        </section>
+
+        <section id="my-courses" class="profile-section">
+            <h3 class="section-title">Meus Cursos</h3>
+            <p class="section-description">Acompanhe seu progresso e acesse suas matrículas.</p>
+
+            <div class="my-courses-grid">
+                <div class="enrolled-course-card">
+                    <div class="course-header">
+                        <span class="course-status status-in-progress">Em Progresso</span>
+                        <div class="course-progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                        <span class="progress-percentage">70%</span>
+                    </div>
+                    <h4 class="enrolled-course-title">Formação em ReactJS Completa</h4>
+                    <p class="enrolled-course-description">Módulo atual: Hooks e Context API</p>
+                    <a href="#" class="continue-course-button">Continuar Curso <i class="fas fa-chevron-right"></i></a>
+                </div>
+
+                <div class="enrolled-course-card">
+                    <div class="course-header">
+                        <span class="course-status status-completed">Concluído</span>
+                        <div class="course-progress-bar">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                        <span class="progress-percentage">100%</span>
+                    </div>
+                    <h4 class="enrolled-course-title">Lógica de Programação com JavaScript</h4>
+                    <p class="enrolled-course-description">Certificado disponível</p>
+                    <a href="#" class="continue-course-button download-certificate">Baixar Certificado <i class="fas fa-download"></i></a>
+                </div>
+
+                <div class="enrolled-course-card">
+                    <div class="course-header">
+                        <span class="course-status status-not-started">Não Iniciado</span>
+                        <div class="course-progress-bar">
+                            <div class="progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="progress-percentage">0%</span>
+                    </div>
+                    <h4 class="enrolled-course-title">Introdução ao C# e .NET</h4>
+                    <p class="enrolled-course-description">Comece seu primeiro módulo agora!</p>
+                    <a href="#" class="continue-course-button">Iniciar Curso <i class="fas fa-play"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="my-plan" class="profile-section">
+            <h3 class="section-title">Meu Plano</h3>
+            <p class="section-description">Detalhes da sua assinatura atual.</p>
+
+            <div class="plan-details-card">
+                <div class="plan-info">
+                    <h4 class="plan-name">Plano Premium</h4>
+                    <p class="plan-status">Status: <span class="status-active">Ativo</span></p>
+                    <p class="plan-renewal-date">Próxima Renovação: <span>28 de Julho de 2025</span></p>
+                    <p class="plan-price">Valor: <span>R$ 49,90/mês</span></p>
+                    <p class="plan-payment-method">Método de Pagamento: <span>Cartão **** **** **** 1234</span></p>
+                </div>
+                <div class="plan-actions">
+                    <button class="plan-action-button primary-button">Atualizar Pagamento</button>
+                    <button class="plan-action-button secondary-button">Mudar Plano</button>
+                    <button class="plan-action-button tertiary-button">Cancelar Assinatura</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="security" class="profile-section">
+            <h3 class="section-title">Segurança</h3>
+            <p class="section-description">Gerencie suas configurações de segurança e senha.</p>
+            <p class="placeholder-text">Conteúdo de segurança virá aqui...</p>
+        </section>
+    </main>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navItems = document.querySelectorAll('.profile-nav-item');
+            const sections = document.querySelectorAll('.profile-section');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Remove 'active' de todos os itens de navegação
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    // Adiciona 'active' ao item clicado
+                    this.classList.add('active');
+
+                    // Esconde todas as seções
+                    sections.forEach(sec => sec.classList.remove('active'));
+
+                    // Mostra a seção correspondente
+                    const targetSectionId = this.dataset.section;
+                    const targetSection = document.getElementById(targetSectionId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+
+            // Ativa a primeira seção ao carregar a página
+            document.querySelector('.profile-nav-item.active').click();
+        });
+    </script>
+}

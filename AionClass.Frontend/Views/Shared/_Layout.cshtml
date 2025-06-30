@@ -10,16 +10,42 @@
     <link rel="stylesheet" href="~/css/faq.css" />
     <link rel="stylesheet" href="~/AionClass.Frontend.styles.css" asp-append-version="true" />
 </head>
-<body class="background-geral">
-    <div class="container">
+@{
+    
+    var bodyClass = ViewData["BodyClass"] as string ?? "background-geral";
+}
+<body class="@bodyClass"> <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="footer text-muted text-white">
-        <div class="container text-end text-white">
-            &copy; 2025 - AionClass  <a asp-area="" asp-controller="Home" asp-action="FAQ" class="text-white">FAQ</a>
+<footer class="aion-footer">
+        <div class="aion-footer-container">
+            <div class="aion-footer-section aion-footer-brand">
+                <h3 class="aion-footer-heading">AionClass</h3>
+                <p>&copy; @DateTime.Now.Year AionClass. Todos os direitos reservados.</p>
+            </div>
+
+            <div class="aion-footer-section aion-footer-links">
+                <h3 class="aion-footer-heading">Links Rápidos</h3>
+                <ul>
+                   <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                   <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a></li>
+                   <li><a asp-area="" asp-controller="Home" asp-action="FAQ">FAQ</a></li>
+                   <li><a asp-area="" asp-controller="Home" asp-action="Cursos">Cursos</a></li>
+                   <li><a asp-area="" asp-controller="Home" asp-action="Profile">Perfil</a></li> 
+                 <li><a href="#contact">Contato</a></li>
+                                    </ul>
+            </div>
+
+           
+
+            <div class="aion-footer-section aion-footer-contact">
+                <h3 class="aion-footer-heading">Fale Conosco</h3>
+                <p>Email: <a href="mailto:contato@aionclass.com">contato@aionclass.com</a></p>
+                <p>WhatsApp: <a href="https://wa.me/5511999999999" target="_blank">(11) 99999-9999</a></p>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

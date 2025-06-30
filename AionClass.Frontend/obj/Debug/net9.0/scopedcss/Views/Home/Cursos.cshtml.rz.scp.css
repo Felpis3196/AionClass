@@ -1,0 +1,346 @@
+/* --- Variáveis CSS para Cores e Gradientes --- */
+:root[b-kt0hnfx400] {
+    /* Gradientes Base */
+    --gradient-purple-blue: linear-gradient(135deg, #4A00B0 0%, #0040FF 100%);
+    --gradient-green: linear-gradient(135deg, #00A040 0%, #00FF80 100%);
+    --gradient-orange: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%);
+    --gradient-pink-purple: linear-gradient(135deg, #FF0080 0%, #8000FF 100%);
+
+    /* Cores Gerais */
+    --fundo-geral: #090712; /* Fundo mais escuro */
+    --fundo-card-base: #1C1C1C; /* Fundo do card */
+    --texto-principal: #FFFFFF;
+    --texto-secundario: #E0E0E0;
+    --texto-level: #B0B0B0;
+    --borda-card-hover: rgba(255, 255, 255, 0.4); /* Borda mais visível no hover */
+
+    /* Sombras/Brilhos */
+    --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --sombra-card-hover: 0 8px 25px rgba(0, 0, 0, 0.7);
+    --brilho-glow-start: rgba(255, 255, 255, 0.3); /* Brilho do gradiente */
+    --brilho-glow-end: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Estilos Gerais da Página --- */
+body.courses-page-body[b-kt0hnfx400] {
+    background-color: var(--fundo-geral);
+    color: var(--texto-secundario);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* --- Estilos do Cabeçalho --- */
+.courses-page-header[b-kt0hnfx400] {
+    text-align: center;
+    padding: 80px 20px 60px;
+    background-color: transparent;
+    color: var(--texto-principal);
+}
+
+.courses-page-header .subtitle[b-kt0hnfx400] {
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--texto-secundario);
+    margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
+    opacity: 0.8;
+}
+
+.courses-page-header .subtitle[b-kt0hnfx400]::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 1px;
+    background-color: var(--texto-secundario);
+    transform: scaleX(0.7);
+    transform-origin: center;
+    filter: drop-shadow(0 0 3px var(--texto-secundario));
+}
+
+.courses-page-header h1[b-kt0hnfx400] {
+    font-size: 3em;
+    line-height: 1.2;
+    color: var(--texto-principal);
+    max-width: 800px;
+    margin: 0 auto;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* --- Container da Grade de Cursos --- */
+.courses-container[b-kt0hnfx400] {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 colunas em telas grandes */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+/* --- Estilos do Card Individual --- */
+.course-card[b-kt0hnfx400] {
+    background-color: var(--fundo-card-base); /* Fundo base para o card */
+    border-radius: 12px;
+    box-shadow: var(--sombra-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    padding: 25px;
+    min-height: 280px; /* Altura ajustada para o novo layout */
+    position: relative;
+    overflow: hidden; /* Garante que os gradientes e brilhos internos não vazem */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid transparent; /* Borda transparente para animação de hover */
+    
+    /* Gradientes para o background do card */
+    /* São aplicados aqui e não mais no .course-background-effect */
+    background-image: linear-gradient(to bottom right, #2a2a2a, #1a1a1a); /* Gradiente sutil de base */
+    background-blend-mode: overlay; /* Para misturar com a cor base */
+}
+
+/* Gradientes de fundo no card ao passar o mouse */
+.course-card:hover[b-kt0hnfx400] {
+    transform: translateY(-10px);
+    box-shadow: var(--sombra-card-hover), 0 0 30px var(--brilho-glow-start), 0 0 60px var(--brilho-glow-end);
+    border-color: var(--borda-card-hover);
+}
+
+/* Efeito de brilho de gradiente no hover (animação) */
+.course-card.course-gradient-purple-blue:hover[b-kt0hnfx400] {
+    background-image: var(--gradient-purple-blue);
+    background-blend-mode: normal; /* Remove a mistura com o fundo base */
+}
+.course-card.course-gradient-green:hover[b-kt0hnfx400] {
+    background-image: var(--gradient-green);
+    background-blend-mode: normal;
+}
+.course-card.course-gradient-orange:hover[b-kt0hnfx400] {
+    background-image: var(--gradient-orange);
+    background-blend-mode: normal;
+}
+.course-card.course-gradient-pink-purple:hover[b-kt0hnfx400] {
+    background-image: var(--gradient-pink-purple);
+    background-blend-mode: normal;
+}
+/* Adicione mais gradientes conforme necessário para outras cores */
+
+
+/* Conteúdo Principal do Card */
+.course-content-wrapper[b-kt0hnfx400] {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Ícone Principal do Card (Font Awesome) */
+.course-icon-main[b-kt0hnfx400] {
+    margin-bottom: 50px; /* Espaço abaixo do ícone */
+    font-size: 3em; /* Tamanho do ícone */
+    color: var(--texto-principal); /* Cor inicial do ícone */
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4); /* Brilho no ícone */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Ajustes de cor e brilho para o ícone no hover, de acordo com o gradiente do card */
+.course-card.course-gradient-purple-blue:hover .course-icon-main[b-kt0hnfx400] { color: #0040FF; text-shadow: 0 0 20px #0040FF; }
+.course-card.course-gradient-green:hover .course-icon-main[b-kt0hnfx400] { color: #00FF80; text-shadow: 0 0 20px #00FF80; }
+.course-card.course-gradient-orange:hover .course-icon-main[b-kt0hnfx400] { color: #FFA500; text-shadow: 0 0 20px #FFA500; }
+.course-card.course-gradient-pink-purple:hover .course-icon-main[b-kt0hnfx400] { color: #8000FF; text-shadow: 0 0 20px #8000FF; }
+
+
+/* Detalhes do Curso (Nível, Título) */
+.course-details[b-kt0hnfx400] {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tag de Nível */
+.course-level-tag[b-kt0hnfx400] {
+    display: flex;
+    align-items: center;
+    font-size: 0.85em;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: var(--texto-level);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.course-level-tag .level-indicator[b-kt0hnfx400] {
+    width: 25px;
+    height: 2px;
+    margin-right: 8px;
+}
+/* Cores das barras de nível */
+.level-beginner[b-kt0hnfx400] { background-color: #00BFFF; }
+.level-intermediate[b-kt0hnfx400] { background-color: #FFC107; }
+.level-advanced[b-kt0hnfx400] { background-color: #F44336; }
+
+
+/* Título do Curso */
+.course-title[b-kt0hnfx400] {
+    font-size: 1.8em;
+    color: var(--texto-principal);
+    line-height: 1.2;
+    margin-bottom: 15px; /* Espaço abaixo do título para a descrição curta, se for adicionada */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.course-card:hover .course-title[b-kt0hnfx400] {
+    color: var(--texto-principal); /* Mantém branco */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Brilho branco mais intenso */
+}
+
+/* Descrição Curta (se você decidir reintroduzir para cada curso) */
+.course-card-description[b-kt0hnfx400] {
+    font-size: 0.9em;
+    color: var(--texto-secundario);
+    opacity: 0.8;
+    line-height: 1.4;
+    margin-top: -10px; /* Puxa para cima para ficar mais próximo do título */
+}
+
+
+/* Link de Seta */
+.course-arrow-link[b-kt0hnfx400] {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    font-size: 1.8em;
+    color: var(--texto-principal);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.course-card:hover .course-arrow-link[b-kt0hnfx400] {
+    color: var(--texto-principal);
+    transform: translateX(5px);
+}
+
+
+/* Tags de Status (LANÇAMENTO / NOVA) */
+.course-tag[b-kt0hnfx400] {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.course-tag.launched[b-kt0hnfx400] {
+    background-color: #FFD700; /* Dourado/Amarelo */
+    color: #333333;
+    animation: bounce-in-b-kt0hnfx400 0.8s ease-out forwards;
+}
+
+.course-tag.new[b-kt0hnfx400] {
+    background-color: #00BFFF; /* Azul vibrante */
+    color: white;
+    animation: fadeInScale-b-kt0hnfx400 0.6s ease-out forwards;
+}
+
+/* Animações de entrada para as tags */
+@keyframes bounce-in-b-kt0hnfx400 {
+    0% { transform: scale(0.5); opacity: 0; }
+    70% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeInScale-b-kt0hnfx400 {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* --- Responsividade --- */
+@media (max-width: 992px) {
+    .courses-page-header h1[b-kt0hnfx400] {
+        font-size: 2.5em;
+    }
+    .courses-container[b-kt0hnfx400] {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    .course-card[b-kt0hnfx400] {
+        min-height: 260px;
+        padding: 20px;
+    }
+    .course-icon-main[b-kt0hnfx400] {
+        font-size: 2.5em;
+        margin-bottom: 40px;
+    }
+    .course-title[b-kt0hnfx400] {
+        font-size: 1.6em;
+    }
+    .course-arrow-link[b-kt0hnfx400] {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .courses-page-header[b-kt0hnfx400] {
+        padding: 60px 15px 40px;
+    }
+    .courses-page-header h1[b-kt0hnfx400] {
+        font-size: 2em;
+    }
+    .courses-container[b-kt0hnfx400] {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+        gap: 20px;
+    }
+    .course-card[b-kt0hnfx400] {
+        min-height: 220px;
+        padding: 20px;
+    }
+    .course-icon-main[b-kt0hnfx400] {
+        font-size: 2.2em;
+        margin-bottom: 30px;
+    }
+    .course-title[b-kt0hnfx400] {
+        font-size: 1.4em;
+    }
+    .course-arrow-link[b-kt0hnfx400] {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    .courses-page-header h1[b-kt0hnfx400] {
+        font-size: 1.8em;
+    }
+    .courses-page-header .subtitle[b-kt0hnfx400] {
+        font-size: 0.9em;
+    }
+    .course-card[b-kt0hnfx400] {
+        padding: 15px;
+        min-height: 200px;
+    }
+    .course-icon-main[b-kt0hnfx400] {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+    .course-title[b-kt0hnfx400] {
+        font-size: 1.3em;
+    }
+    .course-tag[b-kt0hnfx400] {
+        font-size: 0.7em;
+        padding: 4px 8px;
+        top: 15px;
+        left: 15px;
+    }
+}

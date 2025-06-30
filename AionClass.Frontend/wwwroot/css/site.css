@@ -14,7 +14,7 @@ body {
     margin: 0;
     margin-bottom: 60px;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #0e0e0e;
+    background-color: #090712;
     color: #ffffff;
 }
 
@@ -43,6 +43,13 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     height: 100%;
+    width: 100%;
+}
+
+.faq-page-body {
+    background-image: none;
+    background-color: #090712;
+    height: 100vh;
     width: 100%;
 }
 
@@ -151,3 +158,93 @@ h1 {
     );
 }
 
+.aion-footer {
+    background-color: transparent; 
+    color: #ffffff; 
+    padding: 40px 20px; 
+    font-family: 'Inter', sans-serif; 
+    border-top: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+.aion-footer-container {
+    max-width: 1200px;
+    margin: 0 auto; 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    gap: 30px; 
+}
+
+.aion-footer-section {
+    flex: 1; 
+    min-width: 200px; 
+}
+
+.aion-footer-heading {
+    color: #ffffff; 
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+
+.aion-footer-brand p {
+    font-size: 0.9em;
+    opacity: 0.9; 
+}
+
+
+.aion-footer a {
+    color: #ffffff; 
+    text-decoration: none; 
+    transition: color 0.3s ease;
+}
+
+.aion-footer a:hover {
+    color: #cccccc; 
+    text-decoration: underline; 
+}
+
+
+.aion-footer-links ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+}
+
+.aion-footer-links ul li {
+    margin-bottom: 10px;
+}
+
+
+@media (max-width: 768px) {
+    .aion-footer-container {
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .aion-footer-section {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+
+ 
+}
+
+@media (max-width: 480px) {
+    .aion-footer {
+        padding: 30px 15px; 
+    }
+
+    .aion-footer-heading {
+        font-size: 1.1em;
+    }
+}
+
+/* Adicione ao site.css */
+.courses-page-body {
+    background-color: #090712; /* Fundo geral escuro para a página de cursos */
+    color: #e0e0e0; /* Cor do texto padrão para esta página */
+    font-family: 'Inter', sans-serif; /* Mantenha a fonte */
+}
