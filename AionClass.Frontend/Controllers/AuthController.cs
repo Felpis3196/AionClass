@@ -1,54 +1,68 @@
-﻿using AionClass.Frontend.Services.Interfaces;
-using AionClass.Frontend.Models.Auth;
+﻿using AionClass.Frontend.Models.Auth;
 using Frontend.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
-namespace AionClass.Frontend.Controllers
+public class AuthController : Controller
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class AuthController : Controller
+    private readonly IAuthService _authService;
+
+    public AuthController(IAuthService authService)
     {
-        private readonly IAuthService _authService;
+        _authService = authService;
+    }
 
-        public AuthController(IAuthService authService)
-        {
-            _authService = authService;
-        }
+    public IActionResult Login()
+    {
+        return View();
+    }
 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginRequest request)
-        {
-            try
-            {
-                var message = await _authService.LoginAsync(request);
-                return Ok(new { success = true, message });
-            }
-            catch (UnauthorizedAccessException e)
-            {
-                return Unauthorized(new { success = false, message = e.Message });
-            }
-        }
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginRequest model)
+    {
+        if (!ModelState.IsValid)
+            return View(model);
 
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+        try
         {
-            try
-            {
-                var message = await _authService.RegisterAsync(request);
-                return Ok(new { success = true, message });
-            }
-            catch (ApplicationException e)
-            {
-                return BadRequest(new { success = false, message = e.Message });
-            }
+            var token = await _authService.LoginAsync(model);
+            HttpContext.Session.SetString("JwtToken", token); // Armazena o token na sessão
+            return RedirectToAction("Index", "Home");
         }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError(string.Empty, ex.Message);
+            return View(model);
+        }
+    }
 
-        [HttpPost("logout")]
-        public IActionResult Logout()
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Register(RegisterRequest model)
+    {
+        if (!ModelState.IsValid)
+            return View(model);
+
+        try
         {
-            _authService.LogoutAsync();
-            return Ok(new { success = true, message = "Logout realizado com sucesso." });
+            var token = await _authService.RegisterAsync(model);
+            HttpContext.Session.SetString("JwtToken", token); // Armazena o token já no registro
+            return RedirectToAction("Index", "Home");
         }
+        catch (Exception ex)
+        {
+            ModelState.AddModelError(string.Empty, ex.Message);
+            return View(model);
+        }
+    }
+
+    public IActionResult Logout()
+    {
+        HttpContext.Session.Remove("JwtToken"); // Remove o token da sessão
+        return RedirectToAction("Login");
     }
 }

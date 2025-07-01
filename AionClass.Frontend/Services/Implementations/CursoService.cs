@@ -1,63 +1,49 @@
-﻿using AionClass.Frontend.Data;
-using AionClass.Frontend.Models;
+﻿using AionClass.Frontend.Models;
 using AionClass.Frontend.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace AionClass.Frontend.Services.Implementations
 {
     public class CursoService : ICursoService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly HttpClient _httpClient;
 
-        public CursoService(ApplicationDbContext context)
+        public CursoService(IHttpClientFactory clientFactory)
         {
-            _context = context;
-        }
-        public async Task<Curso> AtualizarAsync(int id, Curso cursoAtualizado)
-        {
-            var curso = await _context.Cursos.FindAsync(id);
-            if (curso == null)
-                return null;
-
-            curso.Title = cursoAtualizado.Title;
-            curso.Description = cursoAtualizado.Description;
-            curso.Category = cursoAtualizado.Category;
-            curso.Level = cursoAtualizado.Level;
-            curso.ThumbnailUrl = cursoAtualizado.ThumbnailUrl;
-            curso.IsActive = cursoAtualizado.IsActive;
-
-            await _context.SaveChangesAsync();
-            return curso;
-        }
-
-        public async Task<Curso> CriarAsync(Curso curso)
-        {
-            _context.Cursos.Add(curso);
-            await _context.SaveChangesAsync();
-            return curso;
-        }
-
-        public async Task<bool> DeletarAsync(int id)
-        {
-            var curso = await _context.Cursos.FindAsync(id);
-            if (curso == null)
-                return false;
-
-            _context.Cursos.Remove(curso);
-            await _context.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<Curso> ObterPorIdAsync(int id)
-        {
-            return await _context.Cursos
-               .FirstOrDefaultAsync(m => m.Id == id);
+            _httpClient = clientFactory.CreateClient("API");
         }
 
         public async Task<IEnumerable<Curso>> ObterTodosAsync()
         {
-            return await _context.Cursos
-                .ToListAsync();
+            var response = await _httpClient.GetAsync("api/Cursos");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<IEnumerable<Curso>>();
+        }
+
+        public async Task<Curso> ObterPorIdAsync(int id)
+        {
+            var response = await _httpClient.GetAsync($"api/Cursos/{id}");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Curso>();
+        }
+
+        public async Task<Curso> CriarAsync(Curso curso)
+        {
+            var response = await _httpClient.PostAsJsonAsync("api/Cursos", curso);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Curso>();
+        }
+
+        public async Task<Curso> AtualizarAsync(int id, Curso curso)
+        {
+            var response = await _httpClient.PutAsJsonAsync($"api/Cursos/{id}", curso);
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadFromJsonAsync<Curso>();
+        }
+
+        public async Task<bool> DeletarAsync(int id)
+        {
+            var response = await _httpClient.DeleteAsync($"api/Cursos/{id}");
+            return response.IsSuccessStatusCode;
         }
     }
 }

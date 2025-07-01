@@ -1,0 +1,58 @@
+﻿@model AionClass.Frontend.Models.Auth.RegisterRequest
+
+@{
+    ViewData["Title"] = "Registrar";
+}
+
+<h2>Registrar</h2>
+
+<form asp-action="Register" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="PrimeiroNome"></label>
+        <input asp-for="PrimeiroNome" class="form-control" />
+        <span asp-validation-for="PrimeiroNome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Sobrenome"></label>
+        <input asp-for="Sobrenome" class="form-control" />
+        <span asp-validation-for="Sobrenome" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" type="email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Senha"></label>
+        <input asp-for="Senha" class="form-control" type="password" />
+        <span asp-validation-for="Senha" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PerfilUsuario"></label>
+        <select asp-for="PerfilUsuario" class="form-control">
+            <option value="">Selecione</option>
+            <option value="Student">Estudante</option>
+            <option value="Instructor">Instrutor</option>
+            <option value="Admin">Administrador</option>
+        </select>
+        <span asp-validation-for="PerfilUsuario" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Role"></label>
+        <input asp-for="Role" class="form-control" />
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

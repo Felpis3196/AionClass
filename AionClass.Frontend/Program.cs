@@ -35,15 +35,11 @@ builder.Services.AddHttpClient("API", client =>
     client.BaseAddress = new Uri(apiBaseUrl);
 });
 
-
+// Serviços personalizados
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IMatriculaService, MatriculaService>();
 builder.Services.AddScoped<ICursoService, CursoService>();
 builder.Services.AddScoped<IUserService, UserService>();
-
-
-// Serviços personalizados
-builder.Services.AddScoped<IAuthService, AuthService>();
 
 // HttpContextAccessor para usar Session nos serviços
 builder.Services.AddHttpContextAccessor();
