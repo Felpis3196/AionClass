@@ -2,6 +2,7 @@
 using Frontend.Services.Interfaces;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace AionClass.Frontend.Services.Implementations
@@ -19,40 +20,55 @@ namespace AionClass.Frontend.Services.Implementations
         {
             var response = await _httpClient.PostAsJsonAsync("api/Auth/login", request);
 
+            var responseBody = await response.Content.ReadAsStringAsync();
+
             if (!response.IsSuccessStatusCode)
             {
-                var error = await response.Content.ReadAsStringAsync();
-                throw new UnauthorizedAccessException($"Erro no login: {error}");
+                throw new UnauthorizedAccessException($"Erro no login: {responseBody}");
             }
 
-            var content = await response.Content.ReadFromJsonAsync<ApiResponse>();
+            var content = JsonSerializer.Deserialize<AuthResponse>(responseBody);
 
-            return content?.Message ?? "Login realizado com sucesso.";
+            if (content == null || !content.Success)
+            {
+                throw new UnauthorizedAccessException($"Erro no login: {content?.Message ?? "Resposta inválida"}");
+            }
+
+            return content.Token;
         }
 
         public async Task<string> RegisterAsync(RegisterRequest request)
         {
             var response = await _httpClient.PostAsJsonAsync("api/Auth/register", request);
 
+            var responseBody = await response.Content.ReadAsStringAsync();
+            Console.WriteLine($"Response: {responseBody}");
+
             if (!response.IsSuccessStatusCode)
             {
-                var error = await response.Content.ReadAsStringAsync();
-                throw new ApplicationException($"Erro no registro: {error}");
+                throw new ApplicationException($"Erro no registro: {responseBody}");
+            }
+            
+            var content = JsonSerializer.Deserialize<AuthResponse>(responseBody);
+
+            if (content == null || !content.Success)
+            {
+                throw new ApplicationException($"Erro no registro: {content?.Message ?? "Resposta inválida"}");
             }
 
-            var content = await response.Content.ReadFromJsonAsync<ApiResponse>();
-
-            return content?.Message ?? "Usuário registrado com sucesso.";
+            return content.Token;
         }
+
 
         public async Task LogoutAsync()
         {
             var response = await _httpClient.PostAsync("api/Auth/logout", null);
 
+            var responseBody = await response.Content.ReadAsStringAsync();
+
             if (!response.IsSuccessStatusCode)
             {
-                var error = await response.Content.ReadAsStringAsync();
-                throw new ApplicationException($"Erro no logout: {error}");
+                throw new ApplicationException($"Erro no logout: {responseBody}");
             }
         }
 

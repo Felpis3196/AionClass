@@ -26,12 +26,13 @@ public class AuthController : Controller
         try
         {
             var token = await _authService.LoginAsync(model);
-            HttpContext.Session.SetString("JwtToken", token); // Armazena o token na sessão
+            HttpContext.Session.SetString("JwtToken", token);
             return RedirectToAction("Index", "Home");
         }
         catch (Exception ex)
         {
-            ModelState.AddModelError(string.Empty, ex.Message);
+            var errorMessage = BuildFullErrorMessage(ex);
+            ModelState.AddModelError(string.Empty, errorMessage);
             return View(model);
         }
     }
@@ -47,22 +48,43 @@ public class AuthController : Controller
         if (!ModelState.IsValid)
             return View(model);
 
+        if (string.IsNullOrEmpty(model.Avatar))
+        {
+            model.Avatar = "https://meusite.com/imagens/avatar-padrao.png";
+        }
+
         try
         {
             var token = await _authService.RegisterAsync(model);
-            HttpContext.Session.SetString("JwtToken", token); // Armazena o token já no registro
+            HttpContext.Session.SetString("JwtToken", token);
             return RedirectToAction("Index", "Home");
         }
         catch (Exception ex)
         {
-            ModelState.AddModelError(string.Empty, ex.Message);
+            var errorMessage = BuildFullErrorMessage(ex);
+            ModelState.AddModelError(string.Empty, errorMessage);
             return View(model);
         }
     }
 
     public IActionResult Logout()
     {
-        HttpContext.Session.Remove("JwtToken"); // Remove o token da sessão
+        HttpContext.Session.Remove("JwtToken");
         return RedirectToAction("Login");
+    }
+
+    private string BuildFullErrorMessage(Exception ex)
+    {
+        var message = ex.Message;
+
+        if (ex.InnerException != null)
+        {
+            message += $" | Inner: {ex.InnerException.Message}";
+        }
+
+        // Use isso se quiser detalhes mais completos do erro (stack trace, etc.)
+        // message += $"\n\nDetalhes:\n{ex}";
+
+        return message;
     }
 }

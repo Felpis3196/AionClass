@@ -20,7 +20,7 @@ namespace AionClass.Backend.Models
 
         [Display(Name = "URL do Avatar")]
         [Url]
-        public string Avatar { get; set; }
+        public string? Avatar { get; set; }
 
         [Display(Name = "Data de Criação")]
         public DateTime DataCriacao { get; set; } = DateTime.UtcNow;

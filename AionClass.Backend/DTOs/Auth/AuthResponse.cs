@@ -1,4 +1,4 @@
-﻿namespace AionClass.Frontend.Models.Auth
+﻿namespace AionClass.Backend.DTOs.Auth
 {
     public class AuthResponse
     {
@@ -6,4 +6,5 @@
         public string Token { get; set; }
         public string Message { get; set; }
     }
+
 }

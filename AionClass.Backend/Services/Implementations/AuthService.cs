@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 
 namespace AionClass.Backend.Services.Implementations
 {
@@ -26,17 +27,8 @@ namespace AionClass.Backend.Services.Implementations
             _configuration = configuration;
         }
 
-        public async Task<string> LoginAsync(LoginRequest request)
+        private string GenerateJwtToken(ApplicationUser user)
         {
-            var user = await _userManager.FindByEmailAsync(request.Email);
-            if (user == null)
-                throw new UnauthorizedAccessException("Credenciais inválidas");
-
-            var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
-            if (!result.Succeeded)
-                throw new UnauthorizedAccessException("Credenciais inválidas");
-
-            // Gerar token JWT
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id),
@@ -58,11 +50,36 @@ namespace AionClass.Backend.Services.Implementations
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+        public async Task<string> LoginAsync(LoginRequest request)
+        {
+            var user = await _userManager.FindByEmailAsync(request.Email);
+            if (user == null)
+            {
+                var errorResponse = new AuthResponse { Success = false, Message = "Credenciais inválidas" };
+                return JsonSerializer.Serialize(errorResponse);
+            }
+
+            var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
+            if (!result.Succeeded)
+            {
+                var errorResponse = new AuthResponse { Success = false, Message = "Credenciais inválidas" };
+                return JsonSerializer.Serialize(errorResponse);
+            }
+
+            var token = GenerateJwtToken(user);
+
+            var successResponse = new AuthResponse { Success = true, Token = token, Message = "Login realizado com sucesso." };
+            return JsonSerializer.Serialize(successResponse);
+        }
+
         public async Task<string> RegisterAsync(RegisterRequest request)
         {
             var userExists = await _userManager.FindByEmailAsync(request.Email);
             if (userExists != null)
-                throw new Exception("Usuário já registrado com esse email.");
+            {
+                var errorResponse = new AuthResponse { Success = false, Message = "Usuário já registrado com esse email." };
+                return JsonSerializer.Serialize(errorResponse);
+            }
 
             var user = new ApplicationUser
             {
@@ -81,8 +98,13 @@ namespace AionClass.Backend.Services.Implementations
             var result = await _userManager.CreateAsync(user, request.Password);
 
             if (!result.Succeeded)
-                throw new Exception(string.Join("; ", result.Errors.Select(e => e.Description)));
+            {
+                var errors = string.Join("; ", result.Errors.Select(e => e.Description));
+                var errorResponse = new AuthResponse { Success = false, Message = errors };
+                return JsonSerializer.Serialize(errorResponse);
+            }
 
+            // Depois do registro, já retorna o token como JSON
             return await LoginAsync(new LoginRequest
             {
                 Email = request.Email,

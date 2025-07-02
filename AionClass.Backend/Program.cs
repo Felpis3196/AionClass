@@ -63,17 +63,35 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IMatriculaService, MatriculaService>();
 builder.Services.AddScoped<ICursoService, CursoService>();
 
+// Configure Kestrel para usar HTTPS na porta 5163, conforme launchSettings.json
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenLocalhost(5163, listenOptions =>
+    {
+        listenOptions.UseHttps(); // ativa HTTPS na porta 5163
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage(); // mostrar página de erro detalhada no dev
     app.MapOpenApi();
+}
+else
+{
+    app.UseExceptionHandler("/Home/Error"); // página de erro customizada em produção
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
 app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllers();
 
