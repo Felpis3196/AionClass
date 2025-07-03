@@ -16,60 +16,107 @@ namespace AionClass.Frontend.Services.Implementations
 
         public async Task<IEnumerable<Matricula>> ObterTodasAsync()
         {
-            return await _context.Matriculas
-                .ToListAsync();
+            try
+            {
+                return await _context.Matriculas.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao obter a lista de matrículas.", ex);
+            }
         }
 
         public async Task<Matricula> ObterPorIdAsync(int id)
         {
-            return await _context.Matriculas
-                .FirstOrDefaultAsync(m => m.Id == id);
+            try
+            {
+                return await _context.Matriculas.FirstOrDefaultAsync(m => m.Id == id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao buscar matrícula por ID.", ex);
+            }
         }
 
         public async Task<IEnumerable<Matricula>> ObterPorUsuarioIdAsync(string usuarioId)
         {
-            return await _context.Matriculas
-                .Where(m => m.ApplicationUserId == usuarioId)
-                .ToListAsync();
-        }           
+            try
+            {
+                return await _context.Matriculas
+                    .Where(m => m.ApplicationUserId == usuarioId)
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao buscar matrículas do usuário.", ex);
+            }
+        }
 
         public async Task<Matricula> CriarAsync(Matricula matricula)
         {
-            _context.Matriculas.Add(matricula);
-            matricula.DataMatricula = matricula.DataMatricula.ToUniversalTime();
-            await _context.SaveChangesAsync();
-            return matricula;
+            try
+            {
+                _context.Matriculas.Add(matricula);
+                matricula.DataMatricula = matricula.DataMatricula.ToUniversalTime();
+                await _context.SaveChangesAsync();
+                return matricula;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao criar matrícula.", ex);
+            }
         }
 
         public async Task<Matricula> AtualizarAsync(int id, Matricula matriculaAtualizada)
         {
-            var matricula = await _context.Matriculas.FindAsync(id);
-            if (matricula == null)
-                return null;
+            try
+            {
+                var matricula = await _context.Matriculas.FindAsync(id);
+                if (matricula == null)
+                    return null;
 
-            matricula.Curso = matriculaAtualizada.Curso;
-            matricula.DataMatricula = matriculaAtualizada.DataMatricula;
-            matricula.ApplicationUserId = matriculaAtualizada.ApplicationUserId;
+                matricula.Curso = matriculaAtualizada.Curso;
+                matricula.DataMatricula = matriculaAtualizada.DataMatricula;
+                matricula.ApplicationUserId = matriculaAtualizada.ApplicationUserId;
 
-            await _context.SaveChangesAsync();
-            return matricula;
+                await _context.SaveChangesAsync();
+                return matricula;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao atualizar matrícula.", ex);
+            }
         }
 
         public async Task<bool> DeletarAsync(int id)
         {
-            var matricula = await _context.Matriculas.FindAsync(id);
-            if (matricula == null)
-                return false;
+            try
+            {
+                var matricula = await _context.Matriculas.FindAsync(id);
+                if (matricula == null)
+                    return false;
 
-            _context.Matriculas.Remove(matricula);
-            await _context.SaveChangesAsync();
-            return true;
+                _context.Matriculas.Remove(matricula);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao deletar matrícula.", ex);
+            }
         }
 
         public async Task<bool> UsuarioPossuiMatriculaAsync(string usuarioId, string curso)
         {
-            return await _context.Matriculas.AnyAsync(m => m.ApplicationUserId == usuarioId && m.Curso.Title == curso);
+            try
+            {
+                return await _context.Matriculas
+                    .AnyAsync(m => m.ApplicationUserId == usuarioId && m.Curso.Title == curso);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao verificar matrícula existente para o usuário.", ex);
+            }
         }
     }
 }
- 

@@ -10,6 +10,4 @@ namespace AionClass.Frontend.Models
         public DateTime DataMatricula { get; set; }
         public string ApplicationUserId { get; set; }
     }
-
-
 }

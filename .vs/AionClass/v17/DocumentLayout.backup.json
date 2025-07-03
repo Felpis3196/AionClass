@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|c:\\users\\fegri\\onedrive\\\u00E1rea de trabalho\\aionclass\\aionclass.frontend\\services\\implementations\\cursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|solutionrelative:aionclass.frontend\\services\\implementations\\cursoservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|c:\\users\\fegri\\onedrive\\\u00E1rea de trabalho\\aionclass\\aionclass.frontend\\controllers\\matriculascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|solutionrelative:aionclass.frontend\\controllers\\matriculascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|c:\\users\\fegri\\onedrive\\\u00E1rea de trabalho\\aionclass\\aionclass.frontend\\services\\implementations\\matriculaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|solutionrelative:aionclass.frontend\\services\\implementations\\matriculaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CursoService.cs",
-              "DocumentMoniker": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Services\\Implementations\\CursoService.cs",
-              "RelativeDocumentMoniker": "AionClass.Frontend\\Services\\Implementations\\CursoService.cs",
-              "ToolTip": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Services\\Implementations\\CursoService.cs",
-              "RelativeToolTip": "AionClass.Frontend\\Services\\Implementations\\CursoService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAA1wBoAAAAQAAAAAAAAAA==",
+              "Title": "MatriculasController.cs",
+              "DocumentMoniker": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Controllers\\MatriculasController.cs",
+              "RelativeDocumentMoniker": "AionClass.Frontend\\Controllers\\MatriculasController.cs",
+              "ToolTip": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Controllers\\MatriculasController.cs",
+              "RelativeToolTip": "AionClass.Frontend\\Controllers\\MatriculasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-03T13:37:20.936Z",
+              "WhenOpened": "2025-07-03T23:42:08.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MatriculaService.cs",
+              "DocumentMoniker": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Services\\Implementations\\MatriculaService.cs",
+              "RelativeDocumentMoniker": "AionClass.Frontend\\Services\\Implementations\\MatriculaService.cs",
+              "ToolTip": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Services\\Implementations\\MatriculaService.cs",
+              "RelativeToolTip": "AionClass.Frontend\\Services\\Implementations\\MatriculaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T23:40:45.916Z",
               "EditorCaption": ""
             }
           ]
