@@ -32,9 +32,17 @@ namespace AionClass.Backend.Services.Implementations
 
         public async Task<Curso> CriarAsync(Curso curso)
         {
-            _context.Cursos.Add(curso);
-            await _context.SaveChangesAsync();
-            return curso;
+            try
+            {
+                curso.CreatedAt = DateTime.SpecifyKind(curso.CreatedAt, DateTimeKind.Utc);
+                _context.Cursos.Add(curso);
+                await _context.SaveChangesAsync();
+                return curso;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao criar o curso", ex);
+            }
         }
 
         public async Task<bool> DeletarAsync(int id)
