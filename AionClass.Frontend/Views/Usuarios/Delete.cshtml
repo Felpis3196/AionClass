@@ -1,0 +1,22 @@
+﻿@model AionClass.Frontend.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Excluir Usuário";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Tem certeza que deseja excluir este usuário?</h3>
+<div>
+    <h4>@Model.NomeCompleto</h4>
+    <dl class="row">
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-10">@Model.Email</dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a asp-action="Index">Cancelar</a>
+    </form>
+</div>

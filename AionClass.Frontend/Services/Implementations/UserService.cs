@@ -1,30 +1,37 @@
-﻿using AionClass.Frontend.Data;
-using AionClass.Frontend.Models;
+﻿using AionClass.Frontend.Models;
 using AionClass.Frontend.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using System.Net.Http.Json;
 
 namespace AionClass.Frontend.Services.Implementations
 {
     public class UserService : IUserService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly HttpClient _httpClient;
 
-        public UserService(ApplicationDbContext context)
+        public UserService(IHttpClientFactory clientFactory)
         {
-            _context = context;
+            _httpClient = clientFactory.CreateClient("API");
         }
 
         public async Task<IEnumerable<ApplicationUser>> ObterTodosAsync()
         {
             try
             {
-                return await _context.Users
-                    .Include(u => u.Matriculas)
-                    .ToListAsync();
+                var response = await _httpClient.GetAsync("api/User");
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadFromJsonAsync<IEnumerable<ApplicationUser>>();
             }
-            catch (Exception ex)
+            catch (HttpRequestException ex)
             {
-                throw new Exception("Erro ao obter a lista de usuários.", ex);
+                throw new Exception("Não foi possível conectar à API de usuários.", ex);
+            }
+            catch (NotSupportedException)
+            {
+                throw new Exception("O conteúdo da resposta da API não está em um formato compatível.");
+            }
+            catch (System.Text.Json.JsonException)
+            {
+                throw new Exception("Erro ao processar os dados de usuários recebidos da API.");
             }
         }
 
@@ -32,40 +39,21 @@ namespace AionClass.Frontend.Services.Implementations
         {
             try
             {
-                return await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+                var response = await _httpClient.GetAsync($"api/User/{id}");
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadFromJsonAsync<ApplicationUser>();
             }
-            catch (Exception ex)
+            catch (HttpRequestException ex)
             {
-                throw new Exception("Erro ao buscar usuário por ID.", ex);
+                throw new Exception("Erro de conexão ao buscar usuário na API.", ex);
             }
-        }
-
-        public async Task<ApplicationUser> AtualizarAsync(string id, ApplicationUser usuarioAtualizado)
-        {
-            try
+            catch (NotSupportedException)
             {
-                var usuario = await _context.Users.FindAsync(id);
-                if (usuario == null)
-                    return null;
-
-                usuario.PrimeiroNome = usuarioAtualizado.PrimeiroNome;
-                usuario.Sobrenome = usuarioAtualizado.Sobrenome;
-                usuario.Avatar = usuarioAtualizado.Avatar;
-                usuario.UltimoLogin = usuarioAtualizado.UltimoLogin;
-                usuario.EstaAtivo = usuarioAtualizado.EstaAtivo;
-                usuario.Role = usuarioAtualizado.Role;
-                usuario.PerfilUsuario = usuarioAtualizado.PerfilUsuario;
-
-                usuario.UserName = usuarioAtualizado.UserName;
-                usuario.Email = usuarioAtualizado.Email;
-                usuario.PhoneNumber = usuarioAtualizado.PhoneNumber;
-
-                await _context.SaveChangesAsync();
-                return usuario;
+                throw new Exception("Formato de resposta da API inválido ao buscar usuário.");
             }
-            catch (Exception ex)
+            catch (System.Text.Json.JsonException)
             {
-                throw new Exception("Erro ao atualizar usuário.", ex);
+                throw new Exception("Erro ao desserializar os dados do usuário.");
             }
         }
 
@@ -73,13 +61,43 @@ namespace AionClass.Frontend.Services.Implementations
         {
             try
             {
-                _context.Users.Add(novoUsuario);
-                await _context.SaveChangesAsync();
-                return novoUsuario;
+                var response = await _httpClient.PostAsJsonAsync("api/User", novoUsuario);
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadFromJsonAsync<ApplicationUser>();
             }
-            catch (Exception ex)
+            catch (HttpRequestException ex)
             {
-                throw new Exception("Erro ao criar usuário.", ex);
+                throw new Exception("Erro ao conectar e criar usuário na API.", ex);
+            }
+            catch (NotSupportedException)
+            {
+                throw new Exception("Formato de resposta inválido ao criar usuário.");
+            }
+            catch (System.Text.Json.JsonException)
+            {
+                throw new Exception("Erro ao processar a resposta de criação do usuário.");
+            }
+        }
+
+        public async Task<ApplicationUser> AtualizarAsync(string id, ApplicationUser usuarioAtualizado)
+        {
+            try
+            {
+                var response = await _httpClient.PutAsJsonAsync($"api/User/{id}", usuarioAtualizado);
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadFromJsonAsync<ApplicationUser>();
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new Exception("Erro ao conectar e atualizar o usuário na API.", ex);
+            }
+            catch (NotSupportedException)
+            {
+                throw new Exception("Resposta da API inválida ao atualizar usuário.");
+            }
+            catch (System.Text.Json.JsonException)
+            {
+                throw new Exception("Erro ao processar a resposta da atualização do usuário.");
             }
         }
 
@@ -87,17 +105,12 @@ namespace AionClass.Frontend.Services.Implementations
         {
             try
             {
-                var usuario = await _context.Users.FindAsync(id);
-                if (usuario == null)
-                    return false;
-
-                _context.Users.Remove(usuario);
-                await _context.SaveChangesAsync();
-                return true;
+                var response = await _httpClient.DeleteAsync($"api/User/{id}");
+                return response.IsSuccessStatusCode;
             }
-            catch (Exception ex)
+            catch (HttpRequestException ex)
             {
-                throw new Exception("Erro ao deletar usuário.", ex);
+                throw new Exception("Erro ao conectar e deletar o usuário na API.", ex);
             }
         }
     }

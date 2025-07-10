@@ -303,7 +303,6 @@ C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\AionClas.92D3D38B.Up2Date
-C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\Microsoft.Build.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\Microsoft.Build.Framework.dll
@@ -427,3 +426,4 @@ C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Auth\Register.cshtml.rz.scp.css
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wruf0lcjkb-6ccq6adtei.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wohn7o6l6h-6ccq6adtei.gz
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

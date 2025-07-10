@@ -10,7 +10,6 @@ namespace AionClass.Frontend.Data
 
         public DbSet<Matricula> Matriculas { get; set; }
         public DbSet<Curso> Cursos { get; set; }
-
-
+        public DbSet<ApplicationUser> Usuarios { get; set; }
     }
 }

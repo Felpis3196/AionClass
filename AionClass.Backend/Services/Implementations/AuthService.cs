@@ -16,15 +16,18 @@ namespace AionClass.Backend.Services.Implementations
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
+        private readonly IUserService _userService;
 
         public AuthService(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IUserService userService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _configuration = configuration;
+            _userService = userService;
         }
 
         private string GenerateJwtToken(ApplicationUser user)
@@ -81,6 +84,10 @@ namespace AionClass.Backend.Services.Implementations
                 return JsonSerializer.Serialize(errorResponse);
             }
 
+            bool isFirstUser = !_userManager.Users.Any();
+
+            string role = isFirstUser ? "Admin" : "Student";
+
             var user = new ApplicationUser
             {
                 Id = Guid.NewGuid().ToString(),
@@ -89,8 +96,8 @@ namespace AionClass.Backend.Services.Implementations
                 Avatar = request.Avatar,
                 PrimeiroNome = request.PrimeiroNome,
                 Sobrenome = request.Sobrenome,
-                Role = request.Role,
-                PerfilUsuario = request.PerfilUsuario,
+                Role = role,
+                PerfilUsuario = role,
                 EstaAtivo = true,
                 DataCriacao = DateTime.UtcNow
             };
@@ -104,7 +111,8 @@ namespace AionClass.Backend.Services.Implementations
                 return JsonSerializer.Serialize(errorResponse);
             }
 
-            // Depois do registro, já retorna o token como JSON
+            await _userManager.AddToRoleAsync(user, role);
+
             return await LoginAsync(new LoginRequest
             {
                 Email = request.Email,

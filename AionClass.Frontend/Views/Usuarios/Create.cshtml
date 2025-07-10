@@ -1,0 +1,42 @@
+﻿@model AionClass.Frontend.Models.ApplicationUser
+
+@{
+    ViewData["Title"] = "Criar Usuário";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="PrimeiroNome"></label>
+        <input asp-for="PrimeiroNome" class="form-control" />
+        <span asp-validation-for="PrimeiroNome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Sobrenome"></label>
+        <input asp-for="Sobrenome" class="form-control" />
+        <span asp-validation-for="Sobrenome" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Role"></label>
+        <input asp-for="Role" class="form-control" />
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PerfilUsuario"></label>
+        <input asp-for="PerfilUsuario" class="form-control" />
+        <span asp-validation-for="PerfilUsuario" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Avatar"></label>
+        <input asp-for="Avatar" class="form-control" />
+        <span asp-validation-for="Avatar" class="text-danger"></span>
+    </div>
+    <input type="submit" value="Criar" class="btn btn-primary" /> |
+    <a asp-action="Index">Voltar</a>
+</form>

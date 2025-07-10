@@ -33,16 +33,19 @@ namespace AionClass.Backend.Services.Implementations
             if (usuario == null)
                 return null;
 
-            // Atualiza os campos do ApplicationUser
             usuario.PrimeiroNome = usuarioAtualizado.PrimeiroNome;
             usuario.Sobrenome = usuarioAtualizado.Sobrenome;
             usuario.Avatar = usuarioAtualizado.Avatar;
-            usuario.UltimoLogin = usuarioAtualizado.UltimoLogin;
+
+            if (usuarioAtualizado.UltimoLogin.HasValue)
+            {
+                usuario.UltimoLogin = DateTime.SpecifyKind(usuarioAtualizado.UltimoLogin.Value, DateTimeKind.Utc);
+            }
+
             usuario.EstaAtivo = usuarioAtualizado.EstaAtivo;
             usuario.Role = usuarioAtualizado.Role;
             usuario.PerfilUsuario = usuarioAtualizado.PerfilUsuario;
 
-            // Campos da classe base IdentityUser (opcional)
             usuario.UserName = usuarioAtualizado.UserName;
             usuario.Email = usuarioAtualizado.Email;
             usuario.PhoneNumber = usuarioAtualizado.PhoneNumber;
@@ -50,6 +53,7 @@ namespace AionClass.Backend.Services.Implementations
             await _context.SaveChangesAsync();
             return usuario;
         }
+
         public async Task<ApplicationUser> CriarAsync(ApplicationUser novoUsuario)
         {
             _context.Users.Add(novoUsuario);

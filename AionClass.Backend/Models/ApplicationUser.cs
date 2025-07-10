@@ -39,6 +39,6 @@ namespace AionClass.Backend.Models
         [Display(Name = "Perfil do Usuário")]
         [RegularExpression("Student|Instructor|Admin", ErrorMessage = "O perfil deve ser 'Student', 'Instructor' ou 'Admin'.")]
         public string PerfilUsuario { get; set; }
-        public ICollection<Matricula> Matriculas { get; set; }
+        public ICollection<Matricula>? Matriculas { get; set; }
     }
 }

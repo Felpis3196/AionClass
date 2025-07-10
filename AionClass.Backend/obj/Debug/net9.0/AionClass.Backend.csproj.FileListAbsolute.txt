@@ -296,3 +296,4 @@ C:\Users\Tainara\Desktop\AionClass\AionClass.Backend\obj\Debug\net9.0\refint\Aio
 C:\Users\Tainara\Desktop\AionClass\AionClass.Backend\obj\Debug\net9.0\AionClass.Backend.pdb
 C:\Users\Tainara\Desktop\AionClass\AionClass.Backend\obj\Debug\net9.0\AionClass.Backend.genruntimeconfig.cache
 C:\Users\Tainara\Desktop\AionClass\AionClass.Backend\obj\Debug\net9.0\ref\AionClass.Backend.dll
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
