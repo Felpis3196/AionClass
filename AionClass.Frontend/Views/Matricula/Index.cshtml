@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    int QuantidadeMatriculas = Model.Count();
 }
 
 <h1>Index</h1>
@@ -22,6 +23,10 @@
         </tr>
     </thead>
     <tbody>
+        @if (QuantidadeMatriculas < 1)
+        {
+            <p>Sem Matriculas Ainda</p>
+        }
 @foreach (var item in Model) {
         <tr>
             <td>

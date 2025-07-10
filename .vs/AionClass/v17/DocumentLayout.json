@@ -1,12 +1,37 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|c:\\users\\fegri\\onedrive\\\u00E1rea de trabalho\\aionclass\\aionclass.frontend\\views\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|solutionrelative:aionclass.frontend\\views\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Views\\Auth\\Register.cshtml",
+              "RelativeDocumentMoniker": "AionClass.Frontend\\Views\\Auth\\Register.cshtml",
+              "ToolTip": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Views\\Auth\\Register.cshtml",
+              "RelativeToolTip": "AionClass.Frontend\\Views\\Auth\\Register.cshtml",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-10T14:32:19.333Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

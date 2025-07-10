@@ -195,8 +195,6 @@ C:\Users\Tainara\Desktop\AionClass\AionClass.Frontend\obj\Debug\net9.0\compresse
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Home\Cursos.cshtml.rz.scp.css
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Home\Profile.cshtml.rz.scp.css
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\ft0isbybr1-a2af7wm2jd.gz
-C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wruf0lcjkb-p4wd41o4ai.gz
-C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wohn7o6l6h-p4wd41o4ai.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\AionClass.Frontend.csproj.AssemblyReference.cache
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\Humanizer.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -425,3 +423,7 @@ C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Auth\Login.cshtml.rz.scp.css
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Auth\Register.cshtml.rz.scp.css
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wruf0lcjkb-6ccq6adtei.gz
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wohn7o6l6h-6ccq6adtei.gz

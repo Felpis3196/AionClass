@@ -28,14 +28,6 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Auth/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Auth/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Curso/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -60,24 +52,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matriculas/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhc1xDcmVhdGUuY3NodG1s
+[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matriculas/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhc1xEZWxldGUuY3NodG1s
+[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matriculas/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhc1xEZXRhaWxzLmNzaHRtbA==
+[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matriculas/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhc1xFZGl0LmNzaHRtbA==
+[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matriculas/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhc1xJbmRleC5jc2h0bWw=
+[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Shared/Error.cshtml]
@@ -95,6 +87,14 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-53lj2gy92b
+
+[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-z0bm3u8w8d
 
 [C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Home/Cursos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDdXJzb3MuY3NodG1s

@@ -1,24 +1,24 @@
-﻿using AionClass.Frontend.Data;
-using AionClass.Frontend.Models;
+﻿using AionClass.Frontend.Models;
 using AionClass.Frontend.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using System.Net.Http;
+using System.Net.Http.Json;
 
 namespace AionClass.Frontend.Services.Implementations
 {
     public class MatriculaService : IMatriculaService
     {
-        private readonly ApplicationDbContext _context;
+        private readonly HttpClient _httpClient;
 
-        public MatriculaService(ApplicationDbContext context)
+        public MatriculaService(IHttpClientFactory clientFactory)
         {
-            _context = context;
+            _httpClient = clientFactory.CreateClient("API");
         }
 
         public async Task<IEnumerable<Matricula>> ObterTodasAsync()
         {
             try
             {
-                return await _context.Matriculas.ToListAsync();
+                return await _httpClient.GetFromJsonAsync<IEnumerable<Matricula>>("api/Matriculas");
             }
             catch (Exception ex)
             {
@@ -30,7 +30,11 @@ namespace AionClass.Frontend.Services.Implementations
         {
             try
             {
-                return await _context.Matriculas.FirstOrDefaultAsync(m => m.Id == id);
+                var response = await _httpClient.GetAsync($"api/Matriculas/{id}");
+                if (!response.IsSuccessStatusCode)
+                    return null;
+
+                return await response.Content.ReadFromJsonAsync<Matricula>();
             }
             catch (Exception ex)
             {
@@ -42,9 +46,7 @@ namespace AionClass.Frontend.Services.Implementations
         {
             try
             {
-                return await _context.Matriculas
-                    .Where(m => m.ApplicationUserId == usuarioId)
-                    .ToListAsync();
+                return await _httpClient.GetFromJsonAsync<IEnumerable<Matricula>>($"api/Matriculas/usuario/{usuarioId}");
             }
             catch (Exception ex)
             {
@@ -56,10 +58,10 @@ namespace AionClass.Frontend.Services.Implementations
         {
             try
             {
-                _context.Matriculas.Add(matricula);
-                matricula.DataMatricula = matricula.DataMatricula.ToUniversalTime();
-                await _context.SaveChangesAsync();
-                return matricula;
+                var response = await _httpClient.PostAsJsonAsync("api/Matriculas", matricula);
+                response.EnsureSuccessStatusCode();
+
+                return await response.Content.ReadFromJsonAsync<Matricula>();
             }
             catch (Exception ex)
             {
@@ -71,16 +73,11 @@ namespace AionClass.Frontend.Services.Implementations
         {
             try
             {
-                var matricula = await _context.Matriculas.FindAsync(id);
-                if (matricula == null)
+                var response = await _httpClient.PutAsJsonAsync($"api/Matriculas/{id}", matriculaAtualizada);
+                if (!response.IsSuccessStatusCode)
                     return null;
 
-                matricula.Curso = matriculaAtualizada.Curso;
-                matricula.DataMatricula = matriculaAtualizada.DataMatricula;
-                matricula.ApplicationUserId = matriculaAtualizada.ApplicationUserId;
-
-                await _context.SaveChangesAsync();
-                return matricula;
+                return await response.Content.ReadFromJsonAsync<Matricula>();
             }
             catch (Exception ex)
             {
@@ -92,13 +89,8 @@ namespace AionClass.Frontend.Services.Implementations
         {
             try
             {
-                var matricula = await _context.Matriculas.FindAsync(id);
-                if (matricula == null)
-                    return false;
-
-                _context.Matriculas.Remove(matricula);
-                await _context.SaveChangesAsync();
-                return true;
+                var response = await _httpClient.DeleteAsync($"api/Matriculas/{id}");
+                return response.IsSuccessStatusCode;
             }
             catch (Exception ex)
             {
@@ -110,13 +102,22 @@ namespace AionClass.Frontend.Services.Implementations
         {
             try
             {
-                return await _context.Matriculas
-                    .AnyAsync(m => m.ApplicationUserId == usuarioId && m.Curso.Title == curso);
+                var response = await _httpClient.GetAsync($"api/Matriculas/verificar/{usuarioId}/{Uri.EscapeDataString(curso)}");
+                if (!response.IsSuccessStatusCode)
+                    return false;
+
+                var result = await response.Content.ReadFromJsonAsync<VerificarMatriculaResponse>();
+                return result?.PossuiMatricula ?? false;
             }
             catch (Exception ex)
             {
                 throw new Exception("Erro ao verificar matrícula existente para o usuário.", ex);
             }
+        }
+
+        private class VerificarMatriculaResponse
+        {
+            public bool PossuiMatricula { get; set; }
         }
     }
 }

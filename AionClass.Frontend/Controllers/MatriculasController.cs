@@ -1,20 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using AionClass.Frontend.Models;
+﻿using AionClass.Frontend.Models;
 using AionClass.Frontend.Services.Interfaces;
-using AionClass.Frontend.Data;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
 
 namespace AionClass.Frontend.Controllers
 {
     public class MatriculaController : Controller
     {
         private readonly IMatriculaService _matriculaService;
-        private readonly ApplicationDbContext _context; // Só para preencher o SelectList do Curso
+        private readonly ICursoService _cursoService;
 
-        public MatriculaController(IMatriculaService matriculaService, ApplicationDbContext context)
+        public MatriculaController(IMatriculaService matriculaService, ICursoService cursoService)
         {
             _matriculaService = matriculaService;
-            _context = context;
+            _cursoService = cursoService;
         }
 
         // GET: Matricula
@@ -36,26 +36,38 @@ namespace AionClass.Frontend.Controllers
         }
 
         // GET: Matricula/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            ViewData["CursoId"] = new SelectList(_context.Cursos, "Id", "Title");
+            var cursos = await _cursoService.ObterTodosAsync();
+            ViewData["CursoId"] = new SelectList(cursos, "Id", "Title");
             return View();
         }
 
         // POST: Matricula/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CursoId,DataMatricula,ApplicationUserId")] Matricula matricula)
+        public async Task<IActionResult> Create([Bind("Id,CursoId,DataMatricula")] Matricula matricula)
         {
+            // Pega o ID do usuário autenticado
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (string.IsNullOrEmpty(userId))
+                return Unauthorized();
+
+            // Preenche o campo automaticamente
+            matricula.ApplicationUserId = userId;
+
             if (ModelState.IsValid)
             {
                 await _matriculaService.CriarAsync(matricula);
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["CursoId"] = new SelectList(_context.Cursos, "Id", "Title", matricula.CursoId);
+            var cursos = await _cursoService.ObterTodosAsync();
+            ViewData["CursoId"] = new SelectList(cursos, "Id", "Title", matricula.CursoId);
             return View(matricula);
         }
+
 
         // GET: Matricula/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -65,7 +77,9 @@ namespace AionClass.Frontend.Controllers
             var matricula = await _matriculaService.ObterPorIdAsync(id.Value);
             if (matricula == null) return NotFound();
 
-            ViewData["CursoId"] = new SelectList(_context.Cursos, "Id", "Title", matricula.CursoId);
+            var cursos = await _cursoService.ObterTodosAsync();
+            ViewData["CursoId"] = new SelectList(cursos, "Id", "Title", matricula.CursoId);
+
             return View(matricula);
         }
 
@@ -84,7 +98,9 @@ namespace AionClass.Frontend.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["CursoId"] = new SelectList(_context.Cursos, "Id", "Title", matricula.CursoId);
+            var cursos = await _cursoService.ObterTodosAsync();
+            ViewData["CursoId"] = new SelectList(cursos, "Id", "Title", matricula.CursoId);
+
             return View(matricula);
         }
 

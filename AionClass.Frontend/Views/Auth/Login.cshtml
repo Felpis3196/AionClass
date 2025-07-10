@@ -2,28 +2,75 @@
 
 @{
     ViewData["Title"] = "Login";
+    ViewData["BodyClass"] = "auth-page-body";
+    Layout = "_Layout";
+    ViewData["HideFooter"] = true;
 }
 
-<h2>Login</h2>
+<div class="auth-container">
+    <aside class="auth-sidebar">
+        <div class="auth-header-summary">
+            <div class="auth-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <h2 class="auth-username">Bem-vindo!</h2>
+            <p class="auth-welcome-message">Faça login na sua conta</p>
+        </div>
 
-<form asp-action="Login" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <nav class="auth-nav">
+            <ul>
+                <li><a asp-action="Login" asp-controller="Auth" class="auth-nav-item active"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                <li><a asp-action="Register" asp-controller="Auth" class="auth-nav-item"><i class="fas fa-user-plus"></i> Register</a></li>
+            </ul>
+        </nav>
+    </aside>
 
-    <div class="form-group">
-        <label asp-for="Email"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
+    <main class="auth-content">
+        <section class="auth-section active">
+            <h3 class="section-title">Login</h3>
+            <p class="section-description">Entre com suas credenciais para acessar a plataforma.</p>
 
-    <div class="form-group">
-        <label asp-for="Password"></label>
-        <input asp-for="Password" class="form-control" type="password" />
-        <span asp-validation-for="Password" class="text-danger"></span>
-    </div>
+            <form asp-action="Login" method="post" class="auth-form">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-    <button type="submit" class="btn btn-primary">Entrar</button>
-</form>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="save-button">Entrar</button>
+            </form>
+        </section>
+    </main>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navItems = document.querySelectorAll('.auth-nav-item');
+            const sections = document.querySelectorAll('.auth-section');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    sections.forEach(sec => sec.classList.remove('active'));
+                    const targetSectionId = this.dataset.section;
+                    const targetSection = document.getElementById(targetSectionId);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
 }
