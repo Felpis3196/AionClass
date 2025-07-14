@@ -1,3 +1,5 @@
+@model AionClass.Frontend.Models.UserPerfilViewModel
+
 @{
     ViewData["Title"] = "Meu Perfil";
     ViewData["BodyClass"] = "profile-page-body"; // Classe para o body desta página
@@ -31,7 +33,13 @@
             <h3 class="section-title">Meu Perfil</h3>
             <p class="section-description">Gerencie suas informações pessoais.</p>
 
-            <form class="profile-form">
+            <h2 class="profile-username">@($"{Model.PrimeiroNome} {Model.Sobrenome}")</h2>
+            <input type="text" value="@($"{Model.PrimeiroNome} {Model.Sobrenome}")" />
+            <input type="email" value="@Model.Email" />
+            <input type="tel" value="@Model.PhoneNumber" />
+            <img src="@Model.Avatar" />
+
+            @* <form class="profile-form">
                 <div class="form-group">
                     <label for="fullName">Nome Completo</label>
                     <input type="text" id="fullName" value="Felipe Silva" placeholder="Seu nome completo" />
@@ -45,7 +53,7 @@
                     <input type="tel" id="phone" value="(11) 98765-4321" placeholder="Seu telefone" />
                 </div>
                 <button type="submit" class="save-button">Salvar Alterações</button>
-            </form>
+            </form> *@
         </section>
 
         <section id="my-courses" class="profile-section">

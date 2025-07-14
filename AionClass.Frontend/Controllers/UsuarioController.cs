@@ -1,5 +1,6 @@
 ﻿using AionClass.Frontend.Models;
 using AionClass.Frontend.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AionClass.Frontend.Controllers
@@ -14,6 +15,7 @@ namespace AionClass.Frontend.Controllers
         }
 
         // GET: Usuarios
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             var usuarios = await _userService.ObterTodosAsync();
@@ -21,6 +23,7 @@ namespace AionClass.Frontend.Controllers
         }
 
         // GET: Usuarios/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -29,6 +32,7 @@ namespace AionClass.Frontend.Controllers
         // POST: Usuarios/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(ApplicationUser usuario)
         {
             if (ModelState.IsValid)
@@ -40,6 +44,7 @@ namespace AionClass.Frontend.Controllers
         }
 
         // GET: Usuarios/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(string id)
         {
             if (string.IsNullOrEmpty(id))
@@ -54,6 +59,7 @@ namespace AionClass.Frontend.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(ApplicationUser usuario)
         {
             if (usuario.Id != null)
@@ -66,6 +72,7 @@ namespace AionClass.Frontend.Controllers
         }
 
         // GET: Usuarios/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             if (string.IsNullOrEmpty(id))
@@ -80,6 +87,7 @@ namespace AionClass.Frontend.Controllers
 
         // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {

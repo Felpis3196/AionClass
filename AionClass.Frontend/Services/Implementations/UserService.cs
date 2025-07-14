@@ -1,5 +1,6 @@
 ﻿using AionClass.Frontend.Models;
 using AionClass.Frontend.Services.Interfaces;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
 namespace AionClass.Frontend.Services.Implementations
@@ -8,9 +9,16 @@ namespace AionClass.Frontend.Services.Implementations
     {
         private readonly HttpClient _httpClient;
 
-        public UserService(IHttpClientFactory clientFactory)
+        public UserService(IHttpClientFactory clientFactory, IHttpContextAccessor httpContextAccessor)
         {
             _httpClient = clientFactory.CreateClient("API");
+
+            var token = httpContextAccessor.HttpContext?.Session.GetString("JwtToken");
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            }
         }
 
         public async Task<IEnumerable<ApplicationUser>> ObterTodosAsync()
@@ -111,6 +119,27 @@ namespace AionClass.Frontend.Services.Implementations
             catch (HttpRequestException ex)
             {
                 throw new Exception("Erro ao conectar e deletar o usuário na API.", ex);
+            }
+        }
+
+        public async Task<UserPerfilViewModel> ObterPerfilAsync()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync("api/user/perfil");
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var errorContent = await response.Content.ReadAsStringAsync();
+                    throw new Exception($"Erro ao buscar perfil. Status: {response.StatusCode}, Detalhes: {errorContent}");
+                }
+
+                var perfil = await response.Content.ReadFromJsonAsync<UserPerfilViewModel>();
+                return perfil!;
+            }
+            catch (HttpRequestException ex)
+            {
+                throw new Exception("Erro ao buscar dados do perfil do usuário autenticado.", ex);
             }
         }
     }

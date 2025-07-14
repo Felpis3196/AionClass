@@ -23,16 +23,29 @@ namespace AionClass.Frontend.Services.Implementations
                 var response = await _httpClient.PostAsJsonAsync("api/Auth/login", request);
                 var responseBody = await response.Content.ReadAsStringAsync();
 
+                Console.WriteLine("Response Body:");
+                Console.WriteLine(responseBody);
+
                 if (!response.IsSuccessStatusCode)
                 {
                     throw new UnauthorizedAccessException($"Erro no login: {responseBody}");
                 }
 
-                var content = JsonSerializer.Deserialize<AuthResponse>(responseBody);
-
-                if (content == null || !content.Success)
+                var options = new JsonSerializerOptions
                 {
-                    throw new UnauthorizedAccessException($"Erro no login: {content?.Message ?? "Resposta inválida"}");
+                    PropertyNameCaseInsensitive = true
+                };
+
+                var content = JsonSerializer.Deserialize<AuthResponse>(responseBody, options);
+
+                if (content == null)
+                {
+                    throw new Exception("Resposta nula na desserialização");
+                }
+
+                if (!content.Success)
+                {
+                    throw new UnauthorizedAccessException(content.Message ?? "Falha no login");
                 }
 
                 return content.Token;
@@ -46,6 +59,7 @@ namespace AionClass.Frontend.Services.Implementations
                 throw new Exception("Erro ao processar a resposta de login.", ex);
             }
         }
+
 
         public async Task<string> RegisterAsync(RegisterRequest request)
         {

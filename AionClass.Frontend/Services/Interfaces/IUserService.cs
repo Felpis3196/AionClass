@@ -9,5 +9,6 @@ namespace AionClass.Frontend.Services.Interfaces
         Task<bool> DeletarAsync(string id);
         Task<ApplicationUser> AtualizarAsync(string id, ApplicationUser userAtualizado);
         Task<ApplicationUser> CriarAsync(ApplicationUser novoUsuario);
+        Task<UserPerfilViewModel> ObterPerfilAsync();
     }
 }

@@ -1,7 +1,9 @@
-﻿using AionClass.Backend.Models;
-using AionClass.Backend.Services.Implementations;
+﻿using AionClass.Backend.DTOs.Auth;
+using AionClass.Backend.Models;
 using AionClass.Backend.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace AionClass.Backend.Controllers
 {
@@ -11,10 +13,12 @@ namespace AionClass.Backend.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, UserManager<ApplicationUser> userManager)
         {
             _userService = userService;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -56,6 +60,37 @@ namespace AionClass.Backend.Controllers
                 return NotFound();
 
             return Ok(atualizada);
+        }
+
+        [HttpGet("perfil")]
+        public async Task<ActionResult<UserPerfilViewModel>> ObterPerfil()
+        {
+            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            Console.WriteLine($"UserId do token: {userId}");
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("Token inválido ou expirado.");
+            }
+
+            var usuario = await _userManager.FindByIdAsync(userId);
+
+            if (usuario == null)
+            {
+                return NotFound("Usuário não encontrado.");
+            }
+
+            var viewModel = new UserPerfilViewModel
+            {
+                Id = usuario.Id,
+                PrimeiroNome = usuario.PrimeiroNome,
+                Sobrenome = usuario.Sobrenome,
+                Email = usuario.Email,
+                PhoneNumber = usuario.PhoneNumber,
+                Avatar = usuario.Avatar
+            };
+
+            return Ok(viewModel);
         }
     }
 }

@@ -13,12 +13,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddOpenApi();
 
-// Configure PostgreSQL usando a ConnectionString do appsettings.json
+// Configure PostgreSQL
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Configure Identity
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+// Configure Identity (apenas uma vez)
+builder.Services
+    .AddIdentity<ApplicationUser, IdentityRole>()
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
@@ -52,47 +54,44 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         ValidIssuer = builder.Configuration["Jwt:Issuer"],
         ValidAudience = builder.Configuration["Jwt:Audience"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
     };
 });
 
 builder.Services.AddControllers();
 
+// Serviços customizados
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IMatriculaService, MatriculaService>();
 builder.Services.AddScoped<ICursoService, CursoService>();
 
-// Configure Kestrel para usar HTTPS na porta 5163, conforme launchSettings.json
+// HTTPS na porta 5163
 builder.WebHost.ConfigureKestrel(options =>
 {
     options.ListenLocalhost(5163, listenOptions =>
     {
-        listenOptions.UseHttps(); // ativa HTTPS na porta 5163
+        listenOptions.UseHttps();
     });
 });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage(); // mostrar página de erro detalhada no dev
+    app.UseDeveloperExceptionPage();
     app.MapOpenApi();
 }
 else
 {
-    app.UseExceptionHandler("/Home/Error"); // página de erro customizada em produção
+    app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();

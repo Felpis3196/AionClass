@@ -7,10 +7,17 @@ namespace AionClass.Frontend.Controllers
     public class CursoController : Controller
     {
         private readonly ICursoService _cursoService;
+        private readonly IMatriculaService _matriculaService;
+        private readonly IUserService _userService;
 
-        public CursoController(ICursoService cursoService)
+        public CursoController(
+        ICursoService cursoService,
+        IMatriculaService matriculaService,
+        IUserService userService)
         {
             _cursoService = cursoService;
+            _matriculaService = matriculaService;
+            _userService = userService;
         }
 
         // GET: Curso
@@ -95,6 +102,47 @@ namespace AionClass.Frontend.Controllers
             await _cursoService.DeletarAsync(id);
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Matricular(int id)
+        {
+            try
+            {
+                // Obtem o perfil do usuário logado
+                var perfil = await _userService.ObterPerfilAsync();
+                if (perfil == null || string.IsNullOrEmpty(perfil.Id))
+                {
+                    TempData["Mensagem"] = "Usuário não autenticado.";
+                    return RedirectToAction(nameof(Index));
+                }
+
+                // Verifica se já está matriculado
+                bool jaMatriculado = await _matriculaService.UsuarioPossuiMatriculaAsync(perfil.Id, id.ToString());
+
+                if (jaMatriculado)
+                {
+                    TempData["Mensagem"] = "Você já está matriculado neste curso.";
+                    return RedirectToAction(nameof(Index));
+                }
+
+                // Cria nova matrícula
+                var novaMatricula = new Matricula
+                {
+                    ApplicationUserId = perfil.Id,
+                    CursoId = id,
+                    DataMatricula = DateTime.UtcNow
+                };
+
+                await _matriculaService.CriarAsync(novaMatricula);
+                TempData["Mensagem"] = "Matrícula realizada com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                TempData["Mensagem"] = $"Erro ao realizar matrícula: {ex.Message}";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }
  

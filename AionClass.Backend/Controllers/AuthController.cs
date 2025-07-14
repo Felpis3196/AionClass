@@ -1,6 +1,8 @@
 ﻿using AionClass.Backend.DTOs.Auth;
 using AionClass.Backend.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace AionClass.Backend.Controllers
 {
@@ -18,15 +20,23 @@ namespace AionClass.Backend.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            var token = await _authService.LoginAsync(request);
-            return Ok(token);
+            var response = await _authService.LoginAsync(request);
+            return Ok(response);
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest request)
         {
-            var token = await _authService.RegisterAsync(request);
-            return Ok(new { token });
+            var response = await _authService.RegisterAsync(request);
+            return Ok(response);
+        }
+
+        [Authorize]
+        [HttpGet("api/teste-auth")]
+        public IActionResult TesteAuth()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return Ok($"Usuário autenticado: {userId}");
         }
     }
 }

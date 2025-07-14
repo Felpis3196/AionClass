@@ -30,14 +30,21 @@ namespace AionClass.Backend.Services.Implementations
             _userService = userService;
         }
 
-        private string GenerateJwtToken(ApplicationUser user)
+        private async Task<string> GenerateJwtToken(ApplicationUser user)
+{
+        var roles = await _userManager.GetRolesAsync(user);
+
+        var claims = new List<Claim>
         {
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
+            new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+            new Claim(JwtRegisteredClaimNames.Email, user.Email),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(ClaimTypes.NameIdentifier, user.Id),
+            new Claim(ClaimTypes.Name, user.UserName)
+        };
+
+            // Inclui roles como claims
+            claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -48,44 +55,46 @@ namespace AionClass.Backend.Services.Implementations
                 claims: claims,
                 expires: DateTime.UtcNow.AddHours(2),
                 signingCredentials: creds
-            );
+             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public async Task<string> LoginAsync(LoginRequest request)
+
+        public async Task<AuthResponse> LoginAsync(LoginRequest request)
         {
             var user = await _userManager.FindByEmailAsync(request.Email);
             if (user == null)
             {
-                var errorResponse = new AuthResponse { Success = false, Message = "Credenciais inválidas" };
-                return JsonSerializer.Serialize(errorResponse);
+                return new AuthResponse { Success = false, Message = "Credenciais inválidas" };
             }
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
             if (!result.Succeeded)
             {
-                var errorResponse = new AuthResponse { Success = false, Message = "Credenciais inválidas" };
-                return JsonSerializer.Serialize(errorResponse);
+                return new AuthResponse { Success = false, Message = "Credenciais inválidas" };
             }
 
-            var token = GenerateJwtToken(user);
+            var token = await GenerateJwtToken(user);
 
-            var successResponse = new AuthResponse { Success = true, Token = token, Message = "Login realizado com sucesso." };
-            return JsonSerializer.Serialize(successResponse);
+            return new AuthResponse
+            {
+                Success = true,
+                Token = token,
+                Message = "Login realizado com sucesso."
+            };
         }
 
-        public async Task<string> RegisterAsync(RegisterRequest request)
+
+        public async Task<AuthResponse> RegisterAsync(RegisterRequest request)
         {
             var userExists = await _userManager.FindByEmailAsync(request.Email);
             if (userExists != null)
             {
-                var errorResponse = new AuthResponse { Success = false, Message = "Usuário já registrado com esse email." };
-                return JsonSerializer.Serialize(errorResponse);
+                return new AuthResponse { Success = false, Message = "Usuário já registrado com esse email." };
             }
 
             bool isFirstUser = !_userManager.Users.Any();
-
             string role = isFirstUser ? "Admin" : "Student";
 
             var user = new ApplicationUser
@@ -107,8 +116,7 @@ namespace AionClass.Backend.Services.Implementations
             if (!result.Succeeded)
             {
                 var errors = string.Join("; ", result.Errors.Select(e => e.Description));
-                var errorResponse = new AuthResponse { Success = false, Message = errors };
-                return JsonSerializer.Serialize(errorResponse);
+                return new AuthResponse { Success = false, Message = errors };
             }
 
             await _userManager.AddToRoleAsync(user, role);
@@ -119,5 +127,6 @@ namespace AionClass.Backend.Services.Implementations
                 Password = request.Password
             });
         }
+
     }
 }
