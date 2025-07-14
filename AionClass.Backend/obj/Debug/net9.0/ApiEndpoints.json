@@ -218,7 +218,7 @@
   {
     "ContainingType": "AionClass.Backend.Controllers.MatriculasController",
     "Method": "VerificarMatricula",
-    "RelativePath": "api/Matriculas/verificar/{usuarioId}/{curso}",
+    "RelativePath": "api/Matriculas/verificar/{usuarioId}/{cursoId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -229,8 +229,8 @@
         "IsRequired": true
       },
       {
-        "Name": "curso",
-        "Type": "System.String",
+        "Name": "cursoId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -298,5 +298,25 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AionClass.Backend.Controllers.UserController",
+    "Method": "ObterPerfil",
+    "RelativePath": "api/User/perfil",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "AionClass.Backend.DTOs.Auth.UserPerfilViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   }
 ]

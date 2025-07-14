@@ -1,4 +1,5 @@
 ﻿using AionClass.Frontend.Models;
+using AionClass.Frontend.Models.DTO;
 using AionClass.Frontend.Services.Interfaces;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;

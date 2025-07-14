@@ -42,6 +42,7 @@ namespace AionClass.Backend.Controllers
             return Ok(matriculas);
         }
 
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Matricula novaMatricula)
         {
@@ -75,11 +76,12 @@ namespace AionClass.Backend.Controllers
             return NoContent();
         }
 
-        [HttpGet("verificar/{usuarioId}/{curso}")]
-        public async Task<IActionResult> VerificarMatricula(string usuarioId, string curso)
+        [HttpGet("verificar/{usuarioId}/{cursoId:int}")]
+        public async Task<IActionResult> VerificarMatricula(string usuarioId, int cursoId)
         {
-            var existe = await _matriculaService.UsuarioPossuiMatriculaAsync(usuarioId, curso);
+            var existe = await _matriculaService.UsuarioPossuiMatriculaAsync(usuarioId, cursoId.ToString());
             return Ok(new { possuiMatricula = existe });
         }
+
     }
 }

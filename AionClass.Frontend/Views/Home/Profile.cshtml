@@ -1,4 +1,4 @@
-@model AionClass.Frontend.Models.UserPerfilViewModel
+@model AionClass.Frontend.Models.DTO.UserPerfilViewModel
 
 @{
     ViewData["Title"] = "Meu Perfil";
@@ -61,7 +61,15 @@
             <p class="section-description">Acompanhe seu progresso e acesse suas matrículas.</p>
 
             <div class="my-courses-grid">
-                <div class="enrolled-course-card">
+                @foreach (var matricula in Model.Matricula)
+                {
+                    <div class="curso">
+                        <h4>@matricula.CursoTitulo</h4>
+                        <img src="@matricula.ThumbnailUrl" />
+                        <p>Data da matrícula: @matricula.DataMatricula.ToShortDateString()</p>
+                    </div>
+                }
+                @* <div class="enrolled-course-card">
                     <div class="course-header">
                         <span class="course-status status-in-progress">Em Progresso</span>
                         <div class="course-progress-bar">
@@ -98,7 +106,7 @@
                     <h4 class="enrolled-course-title">Introdução ao C# e .NET</h4>
                     <p class="enrolled-course-description">Comece seu primeiro módulo agora!</p>
                     <a href="#" class="continue-course-button">Iniciar Curso <i class="fas fa-play"></i></a>
-                </div>
+                </div> *@
             </div>
         </section>
 

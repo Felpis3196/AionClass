@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AionClass.Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a3575b431e0dc4e1b3a73e758f9fa584d1c6c34")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff0acf8fdd379ba1b6117f202f579cab35bcecdb")]
 [assembly: System.Reflection.AssemblyProductAttribute("AionClass.Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AionClass.Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

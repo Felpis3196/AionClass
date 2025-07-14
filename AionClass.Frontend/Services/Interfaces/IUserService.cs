@@ -1,4 +1,5 @@
 ﻿using AionClass.Frontend.Models;
+using AionClass.Frontend.Models.DTO;
 
 namespace AionClass.Frontend.Services.Interfaces
 {

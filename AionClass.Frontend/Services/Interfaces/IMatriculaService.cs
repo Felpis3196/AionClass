@@ -10,6 +10,6 @@ namespace AionClass.Frontend.Services.Interfaces
         Task<Matricula> CriarAsync(Matricula matricula);
         Task<Matricula> AtualizarAsync(int id, Matricula matriculaAtualizada);
         Task<bool> DeletarAsync(int id);
-        Task<bool> UsuarioPossuiMatriculaAsync(string usuarioId, string curso);
+        Task<bool> UsuarioPossuiMatriculaAsync(string usuarioId, string cursoid);
     }
 }

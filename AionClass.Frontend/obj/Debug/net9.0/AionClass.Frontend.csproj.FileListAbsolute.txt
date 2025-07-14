@@ -236,7 +236,6 @@ C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\System.Composition.Hosting.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\System.Composition.Runtime.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\System.Composition.TypedParts.dll
-C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\System.Text.Json.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -426,4 +425,8 @@ C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Auth\Register.cshtml.rz.scp.css
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wruf0lcjkb-6ccq6adtei.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wohn7o6l6h-6ccq6adtei.gz
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\rjimswa.dswa.cache.json
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

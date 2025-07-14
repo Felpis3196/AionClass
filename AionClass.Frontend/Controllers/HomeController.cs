@@ -1,4 +1,5 @@
 using AionClass.Frontend.Models;
+using AionClass.Frontend.Models.ViewModels;
 using AionClass.Frontend.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -9,11 +10,13 @@ namespace AionClass.Frontend.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUserService _userService;
+        private readonly IMatriculaService _matriculaService;
 
-        public HomeController(ILogger<HomeController> logger, IUserService userService)
+        public HomeController(ILogger<HomeController> logger, IUserService userService, IMatriculaService matriculaService)
         {
             _logger = logger;
             _userService = userService;
+            _matriculaService = matriculaService;
         }
 
         public IActionResult Index()
@@ -45,6 +48,17 @@ namespace AionClass.Frontend.Controllers
             }
 
             var perfil = await _userService.ObterPerfilAsync();
+
+            var matriculas = await _matriculaService.ObterPorUsuarioIdAsync(perfil.Id);
+
+            perfil.Matricula = matriculas.Select(m => new MatriculaViewModel
+            {
+                CursoId = m.CursoId,
+                CursoTitulo = m.Curso?.Title,
+                ThumbnailUrl = m.Curso?.ThumbnailUrl,
+                DataMatricula = m.DataMatricula
+            }).ToList();
+
             return View(perfil);
         }
 

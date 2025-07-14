@@ -1,5 +1,7 @@
 ﻿using AionClass.Backend.Data;
+using AionClass.Backend.DTOs;
 using AionClass.Backend.Models;
+using AionClass.Backend.Models.DTO;
 using AionClass.Backend.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,17 +28,39 @@ namespace AionClass.Backend.Services.Implementations
                 .FirstOrDefaultAsync(m => m.Id == id);
         }
 
-        public async Task<IEnumerable<Matricula>> ObterPorUsuarioIdAsync(string usuarioId)
+        public async Task<IEnumerable<MatriculaCursoDTO>> ObterPorUsuarioIdAsync(string usuarioId)
         {
             return await _context.Matriculas
+                .Include(m => m.Curso)
                 .Where(m => m.ApplicationUserId == usuarioId)
+                .Select(m => new MatriculaCursoDTO
+                {
+                    Id = m.Id,
+                    DataMatricula = m.DataMatricula,
+                    Curso = new CursoDto
+                    {
+                        Id = m.Curso.Id,
+                        Title = m.Curso.Title,
+                        Description = m.Curso.Description,
+                        Category = m.Curso.Category,
+                        Level = m.Curso.Level,
+                        ThumbnailUrl = m.Curso.ThumbnailUrl
+                    }
+                })
                 .ToListAsync();
-        }           
+        }
+
 
         public async Task<Matricula> CriarAsync(Matricula matricula)
         {
-            _context.Matriculas.Add(matricula);
+            bool jaMatriculado = await _context.Matriculas
+                .AnyAsync(m => m.ApplicationUserId == matricula.ApplicationUserId && m.CursoId == matricula.CursoId);
+
+            if (jaMatriculado)
+                throw new InvalidOperationException("Usuário já matriculado neste curso.");
+
             matricula.DataMatricula = matricula.DataMatricula.ToUniversalTime();
+            _context.Matriculas.Add(matricula);
             await _context.SaveChangesAsync();
             return matricula;
         }
@@ -47,7 +71,7 @@ namespace AionClass.Backend.Services.Implementations
             if (matricula == null)
                 return null;
 
-            matricula.Curso = matriculaAtualizada.Curso;
+            matricula.CursoId = matriculaAtualizada.CursoId;
             matricula.DataMatricula = matriculaAtualizada.DataMatricula;
             matricula.ApplicationUserId = matriculaAtualizada.ApplicationUserId;
 
@@ -66,9 +90,10 @@ namespace AionClass.Backend.Services.Implementations
             return true;
         }
 
-        public async Task<bool> UsuarioPossuiMatriculaAsync(string usuarioId, string curso)
+        public async Task<bool> UsuarioPossuiMatriculaAsync(string usuarioId, string cursoId)
         {
-            return await _context.Matriculas.AnyAsync(m => m.ApplicationUserId == usuarioId && m.Curso.Title == curso);
+            return await _context.Matriculas
+                .AnyAsync(m => m.ApplicationUserId == usuarioId && m.CursoId.ToString() == cursoId.ToString());
         }
     }
 }

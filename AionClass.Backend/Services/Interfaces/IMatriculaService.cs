@@ -1,4 +1,5 @@
 ﻿using AionClass.Backend.Models;
+using AionClass.Backend.Models.DTO;
 
 namespace AionClass.Backend.Services.Interfaces
 {
@@ -6,7 +7,7 @@ namespace AionClass.Backend.Services.Interfaces
     {
         Task<IEnumerable<Matricula>> ObterTodasAsync();
         Task<Matricula> ObterPorIdAsync(int id);
-        Task<IEnumerable<Matricula>> ObterPorUsuarioIdAsync(string usuarioId);
+        Task<IEnumerable<MatriculaCursoDTO>> ObterPorUsuarioIdAsync(string usuarioId);
         Task<Matricula> CriarAsync(Matricula matricula);
         Task<Matricula> AtualizarAsync(int id, Matricula matriculaAtualizada);
         Task<bool> DeletarAsync(int id);
