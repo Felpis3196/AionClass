@@ -19,8 +19,20 @@ namespace AionClass.Frontend.Controllers
             _matriculaService = matriculaService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var token = HttpContext.Session.GetString("JwtToken");
+            ViewBag.IsAdmin = false;
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                try
+                {
+                    var perfil = await _userService.ObterPerfilAsync();
+                    ViewBag.IsAdmin = perfil?.Role == "Admin";
+                }
+                catch{}
+            }
             return View();
         }
 

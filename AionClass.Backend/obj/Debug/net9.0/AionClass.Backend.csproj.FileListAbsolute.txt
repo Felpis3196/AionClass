@@ -300,3 +300,4 @@ C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Backend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

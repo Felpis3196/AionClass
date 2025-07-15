@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+
     int QuantidadeCursos = Model.Count();
 }
 
@@ -12,9 +13,12 @@
         @TempData["Mensagem"]
     </div>
 }
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
+@if ((ViewBag.IsAdmin ?? false) || (ViewBag.IsInstructor ?? false))
+{
+    <a asp-action="Create" class="btn btn-primary">Novo Curso</a>
+}
+
 <table class="table">
     <thead>
         <tr>
@@ -71,9 +75,12 @@
                         @Html.DisplayFor(modelItem => item.IsActive)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> |
+                        @if ((ViewBag.IsAdmin ?? false) || (ViewBag.IsInstructor ?? false))
+                        {
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>           
+                        <span>|</span>
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        }                   
                         <a asp-action="Matricular" asp-route-id="@item.Id">Matricular</a> 
                     </td>
                 </tr>

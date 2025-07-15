@@ -45,8 +45,14 @@ public class AuthController : Controller
     [HttpPost]
     public async Task<IActionResult> Register(RegisterRequest model)
     {
-        if (!ModelState.IsValid)
+        if (model.Email == null)
             return View(model);
+
+        if(model.Role == null)
+        {
+            model.Role = "Student";
+            model.PerfilUsuario = "Student";
+        }
 
         if (string.IsNullOrEmpty(model.Avatar))
         {

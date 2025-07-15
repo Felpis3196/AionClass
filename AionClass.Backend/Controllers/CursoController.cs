@@ -1,6 +1,7 @@
 ﻿using AionClass.Backend.Models;
 using AionClass.Backend.Services.Implementations;
 using AionClass.Backend.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AionClass.Backend.Controllers
@@ -35,6 +36,7 @@ namespace AionClass.Backend.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,Instructor")]
         public async Task<IActionResult> Create([FromBody] Curso novoCurso)
         {
             if (!ModelState.IsValid)
@@ -45,6 +47,7 @@ namespace AionClass.Backend.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin,Instructor")]
         public async Task<IActionResult> Update(int id, [FromBody] Curso cursoAtualizado)
         {
             if (!ModelState.IsValid)
@@ -58,6 +61,7 @@ namespace AionClass.Backend.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin,Instructor")]
         public async Task<IActionResult> Delete(int id)
         {
             var sucesso = await _cursosService.DeletarAsync(id);

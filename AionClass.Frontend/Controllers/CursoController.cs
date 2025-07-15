@@ -20,10 +20,25 @@ namespace AionClass.Frontend.Controllers
             _userService = userService;
         }
 
-        // GET: Curso
         public async Task<IActionResult> Index()
         {
+            var token = HttpContext.Session.GetString("JwtToken");
+
+            ViewBag.IsAdmin = false;
+            ViewBag.IsInstructor = false;
+
             var cursos = await _cursoService.ObterTodosAsync();
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                try
+                {
+                    var perfil = await _userService.ObterPerfilAsync();
+                    ViewBag.IsAdmin = perfil?.Role == "Admin";
+                    ViewBag.IsInstructor = perfil?.Role == "Instructor";
+                }
+                catch{}
+            }
             return View(cursos);
         }
 

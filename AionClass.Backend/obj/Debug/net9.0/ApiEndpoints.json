@@ -248,6 +248,22 @@
   },
   {
     "ContainingType": "AionClass.Backend.Controllers.UserController",
+    "Method": "Create",
+    "RelativePath": "api/User",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "novoUsuario",
+        "Type": "AionClass.Backend.Models.ApplicationUser",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AionClass.Backend.Controllers.UserController",
     "Method": "GetById",
     "RelativePath": "api/User/{id}",
     "HttpMethod": "GET",

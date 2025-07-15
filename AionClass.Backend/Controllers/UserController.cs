@@ -1,15 +1,16 @@
 ﻿using AionClass.Backend.DTOs.Auth;
 using AionClass.Backend.Models;
 using AionClass.Backend.Services.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace AionClass.Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    //[Authorize]
+    [Authorize(Roles = "Admin")]
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -37,6 +38,16 @@ namespace AionClass.Backend.Controllers
                 return NotFound();
 
             return Ok(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] ApplicationUser novoUsuario)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var usuarioCriado = await _userService.CriarAsync(novoUsuario);
+            return CreatedAtAction(nameof(GetById), new { id = usuarioCriado.Id }, usuarioCriado);
         }
 
         [HttpDelete("{id}")]
@@ -87,7 +98,8 @@ namespace AionClass.Backend.Controllers
                 Sobrenome = usuario.Sobrenome,
                 Email = usuario.Email,
                 PhoneNumber = usuario.PhoneNumber,
-                Avatar = usuario.Avatar
+                Avatar = usuario.Avatar,
+                Role = usuario.Role,
             };
 
             return Ok(viewModel);

@@ -40,7 +40,8 @@ namespace AionClass.Backend.Services.Implementations
             new Claim(JwtRegisteredClaimNames.Email, user.Email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(ClaimTypes.NameIdentifier, user.Id),
-            new Claim(ClaimTypes.Name, user.UserName)
+            new Claim(ClaimTypes.Name, user.UserName),
+            new Claim(ClaimTypes.Role, user.Role)
         };
 
             // Inclui roles como claims
@@ -81,7 +82,7 @@ namespace AionClass.Backend.Services.Implementations
             {
                 Success = true,
                 Token = token,
-                Message = "Login realizado com sucesso."
+                Message = "Login realizado com sucesso.",
             };
         }
 

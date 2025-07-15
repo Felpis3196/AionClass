@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5C15ACB8-6951-A63F-FD44-0FCB16CF6C8E}|AionClass.Backend\\AionClass.Backend.csproj|c:\\users\\fegri\\onedrive\\\u00E1rea de trabalho\\aionclass\\aionclass.backend\\dtos\\matriculadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C15ACB8-6951-A63F-FD44-0FCB16CF6C8E}|AionClass.Backend\\AionClass.Backend.csproj|solutionrelative:aionclass.backend\\dtos\\matriculadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|c:\\users\\fegri\\onedrive\\\u00E1rea de trabalho\\aionclass\\aionclass.frontend\\views\\curso\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|solutionrelative:aionclass.frontend\\views\\curso\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C15ACB8-6951-A63F-FD44-0FCB16CF6C8E}|AionClass.Backend\\AionClass.Backend.csproj|c:\\users\\fegri\\onedrive\\\u00E1rea de trabalho\\aionclass\\aionclass.backend\\dtos\\matriculacursodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C15ACB8-6951-A63F-FD44-0FCB16CF6C8E}|AionClass.Backend\\AionClass.Backend.csproj|solutionrelative:aionclass.backend\\dtos\\matriculacursodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|c:\\users\\fegri\\onedrive\\\u00E1rea de trabalho\\aionclass\\aionclass.frontend\\controllers\\cursocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|solutionrelative:aionclass.frontend\\controllers\\cursocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5C15ACB8-6951-A63F-FD44-0FCB16CF6C8E}|AionClass.Backend\\AionClass.Backend.csproj|c:\\users\\fegri\\onedrive\\\u00E1rea de trabalho\\aionclass\\aionclass.backend\\dtos\\cursodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5C15ACB8-6951-A63F-FD44-0FCB16CF6C8E}|AionClass.Backend\\AionClass.Backend.csproj|solutionrelative:aionclass.backend\\dtos\\cursodto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|c:\\users\\fegri\\onedrive\\\u00E1rea de trabalho\\aionclass\\aionclass.frontend\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5C7938A2-1881-4636-9986-B1329CA9ECCD}|AionClass.Frontend\\AionClass.Frontend.csproj|solutionrelative:aionclass.frontend\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MatriculaDTO.cs",
-              "DocumentMoniker": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Backend\\DTOs\\MatriculaDTO.cs",
-              "RelativeDocumentMoniker": "AionClass.Backend\\DTOs\\MatriculaDTO.cs",
-              "ToolTip": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Backend\\DTOs\\MatriculaDTO.cs",
-              "RelativeToolTip": "AionClass.Backend\\DTOs\\MatriculaDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T14:11:33.227Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MatriculaCursoDTO.cs",
-              "DocumentMoniker": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Backend\\DTOs\\MatriculaCursoDTO.cs",
-              "RelativeDocumentMoniker": "AionClass.Backend\\DTOs\\MatriculaCursoDTO.cs",
-              "ToolTip": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Backend\\DTOs\\MatriculaCursoDTO.cs",
-              "RelativeToolTip": "AionClass.Backend\\DTOs\\MatriculaCursoDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "CursoController.cs",
+              "DocumentMoniker": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Controllers\\CursoController.cs",
+              "RelativeDocumentMoniker": "AionClass.Frontend\\Controllers\\CursoController.cs",
+              "ToolTip": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Controllers\\CursoController.cs",
+              "RelativeToolTip": "AionClass.Frontend\\Controllers\\CursoController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T14:11:31.122Z",
+              "WhenOpened": "2025-07-15T17:45:13.847Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CursoDTO.cs",
-              "DocumentMoniker": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Backend\\DTOs\\CursoDTO.cs",
-              "RelativeDocumentMoniker": "AionClass.Backend\\DTOs\\CursoDTO.cs",
-              "ToolTip": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Backend\\DTOs\\CursoDTO.cs",
-              "RelativeToolTip": "AionClass.Backend\\DTOs\\CursoDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "AionClass.Frontend\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "AionClass.Frontend\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwCEAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T14:11:23.606Z",
+              "WhenOpened": "2025-07-15T17:44:59.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Views\\Curso\\Index.cshtml",
+              "RelativeDocumentMoniker": "AionClass.Frontend\\Views\\Curso\\Index.cshtml",
+              "ToolTip": "C:\\Users\\fegri\\OneDrive\\\u00C1rea de Trabalho\\AionClass\\AionClass.Frontend\\Views\\Curso\\Index.cshtml",
+              "RelativeToolTip": "AionClass.Frontend\\Views\\Curso\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-15T17:44:53.395Z",
               "EditorCaption": ""
             }
           ]
