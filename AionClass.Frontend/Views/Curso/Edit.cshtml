@@ -1,64 +1,86 @@
 ﻿@model AionClass.Frontend.Models.Curso
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Curso";
 }
 
-<h1>Edit</h1>
+<div class="card shadow-lg rounded-4 border-0 bg-light-subtle">
+    <div class="card-body p-4 w-100">
+        <h4 class="card-title text-center text-purple-600 mb-4">Editar Curso</h4>
 
-<h4>Curso</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
+
+            <div class="form-group mb-3">
+                <label asp-for="Title" class="form-label fw-semibold text-secondary"></label>
+                <input asp-for="Title" class="form-control rounded-pill border-1 border-secondary-subtle" />
+                <span asp-validation-for="Title" class="text-danger small"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+
+            <div class="form-group mb-3">
+                <label asp-for="Description" class="form-label fw-semibold text-secondary"></label>
+                <input asp-for="Description" class="form-control rounded-pill border-1 border-secondary-subtle" />
+                <span asp-validation-for="Description" class="text-danger small"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Category" class="control-label"></label>
-                <input asp-for="Category" class="form-control" />
-                <span asp-validation-for="Category" class="text-danger"></span>
+
+            <div class="form-group mb-3">
+                <label asp-for="Category" class="form-label fw-semibold text-secondary"></label>
+                <input asp-for="Category" class="form-control rounded-pill border-1 border-secondary-subtle" />
+                <span asp-validation-for="Category" class="text-danger small"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Level" class="control-label"></label>
-                <input asp-for="Level" class="form-control" />
-                <span asp-validation-for="Level" class="text-danger"></span>
+
+            <div class="form-group mb-3">
+                <label asp-for="Level" class="form-label fw-semibold text-secondary"></label>
+                <input asp-for="Level" class="form-control rounded-pill border-1 border-secondary-subtle" />
+                <span asp-validation-for="Level" class="text-danger small"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ThumbnailUrl" class="control-label"></label>
-                <input asp-for="ThumbnailUrl" class="form-control" />
-                <span asp-validation-for="ThumbnailUrl" class="text-danger"></span>
+
+            <div class="form-group mb-3">
+                <label asp-for="ThumbnailUrl" class="form-label fw-semibold text-secondary"></label>
+                <input asp-for="ThumbnailUrl" class="form-control rounded-pill border-1 border-secondary-subtle" />
+                <span asp-validation-for="ThumbnailUrl" class="text-danger small"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
+
+            <div class="form-group mb-3">
+                <label asp-for="CreatedAt" class="form-label fw-semibold text-secondary"></label>
+                <input asp-for="CreatedAt" class="form-control rounded-pill border-1 border-secondary-subtle" readonly />
+                <span asp-validation-for="CreatedAt" class="text-danger small"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+
+            <div class="form-group form-check mb-3">
+                <input class="form-check-input" asp-for="IsActive" />
+                <label class="form-check-label fw-semibold" asp-for="IsActive">
+                    @Html.DisplayNameFor(model => model.IsActive)
                 </label>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+
+            <div class="d-grid gap-2">
+                <input type="submit" value="Salvar Alterações" class="btn btn-purple text-white fw-semibold rounded-pill" />
+                <a asp-action="Index" class="btn btn-outline-secondary rounded-pill">Voltar para Lista</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
+<style>
+    .btn-purple {
+        background-color: #6f42c1;
+        border: none;
+    }
+
+        .btn-purple:hover {
+            background-color: #5936a3;
+        }
+
+    .text-purple-600 {
+        color: #6f42c1;
+    }
+</style>

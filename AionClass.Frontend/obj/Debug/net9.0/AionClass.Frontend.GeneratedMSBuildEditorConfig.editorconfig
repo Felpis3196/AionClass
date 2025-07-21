@@ -36,40 +36,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Curso/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Curso/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Curso/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXENyZWF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXEVkaXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Shared/Error.cshtml]
@@ -112,6 +84,10 @@ build_metadata.AdditionalFiles.CssScope = b-53lj2gy92b
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = b-z0bm3u8w8d
 
+[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Curso/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3Vyc29cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-9kmhqkkvoo
+
 [C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Home/Cursos.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDdXJzb3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-kt0hnfx400
@@ -127,6 +103,10 @@ build_metadata.AdditionalFiles.CssScope = b-4e4ftaviyh
 [C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Home/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = b-yi74lz9wfa
+
+[C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Matricula/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0cmljdWxhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-12ojysfnb8
 
 [C:/Users/fegri/OneDrive/Área de Trabalho/AionClass/AionClass.Frontend/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s

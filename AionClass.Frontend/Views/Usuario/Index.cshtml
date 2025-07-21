@@ -30,7 +30,11 @@
                 <td>@item.EstaAtivo</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post"
+                          onsubmit="return confirm('Tem certeza que deseja excluir este usuário?');"
+                          style="display:inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                    </form>
                 </td>
             </tr>
         }

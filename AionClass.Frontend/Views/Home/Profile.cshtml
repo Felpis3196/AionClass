@@ -9,10 +9,11 @@
 <div class="profile-container">
     <aside class="profile-sidebar">
         <div class="profile-header-summary">
-            <div class="profile-avatar">
-                <i class="fas fa-user-circle"></i> @* Ícone de usuário para o avatar *@
+            <div class="form-group">
+                <label for="avatar">Foto de Perfil</label><br />
+                <img src="@Model.Avatar" alt="Avatar" style="max-width: 150px; border-radius: 50%;" />
             </div>
-            <h2 class="profile-username">Nome do Usuário</h2>
+            <h2 class="profile-username">@($"{Model.PrimeiroNome} {Model.Sobrenome}")</h2>
             <p class="profile-welcome-message">Bem-vindo(a) de volta!</p>
         </div>
 
@@ -24,6 +25,7 @@
                 <li><a href="#security" class="profile-nav-item" data-section="security"><i class="fas fa-lock"></i> Segurança</a></li>
                 <li><a asp-action="Login" asp-controller="Auth">Login</a></li>
                 <li><a asp-action="Register" asp-controller="Auth">Register</a></li>
+                <li><a asp-action="Logout" asp-controller="Auth">Sair</a></li>
             </ul>
         </nav>
     </aside>
@@ -33,29 +35,26 @@
             <h3 class="section-title">Meu Perfil</h3>
             <p class="section-description">Gerencie suas informações pessoais.</p>
 
-            <h2 class="profile-username">@($"{Model.PrimeiroNome} {Model.Sobrenome}")</h2>
-            <input type="text" value="@($"{Model.PrimeiroNome} {Model.Sobrenome}")" />
-            <input type="email" value="@Model.Email" />
-            <input type="tel" value="@Model.PhoneNumber" />
-            <input type="text" value="@Model.Role" />
-            <img src="@Model.Avatar" />
-
-            @* <form class="profile-form">
+            <form class="profile-form p-2">
                 <div class="form-group">
                     <label for="fullName">Nome Completo</label>
-                    <input type="text" id="fullName" value="Felipe Silva" placeholder="Seu nome completo" />
+                    <input type="text" id="fullName" value="@($"{Model.PrimeiroNome} {Model.Sobrenome}")" placeholder="Seu nome completo" />
                 </div>
+
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" value="felipe.silva@example.com" placeholder="Seu endereço de email" disabled /> 
+                    <input type="email" id="email" value="@Model.Email" placeholder="Seu endereço de email" disabled />
                 </div>
+
                 <div class="form-group">
-                    <label for="phone">Telefone</label>
-                    <input type="tel" id="phone" value="(11) 98765-4321" placeholder="Seu telefone" />
+                    <label for="role">Tipo de Usuário</label>
+                    <input type="text" id="role" value="@Model.Role" placeholder="Tipo de usuário" disabled />
                 </div>
+
                 <button type="submit" class="save-button">Salvar Alterações</button>
-            </form> *@
+            </form>
         </section>
+
 
         <section id="my-courses" class="profile-section">
             <h3 class="section-title">Meus Cursos</h3>
@@ -64,10 +63,16 @@
             <div class="my-courses-grid">
                 @foreach (var matricula in Model.Matricula)
                 {
-                    <div class="curso">
-                        <h4>@matricula.CursoTitulo</h4>
-                        <img src="@matricula.ThumbnailUrl" />
-                        <p>Data da matrícula: @matricula.DataMatricula.ToShortDateString()</p>
+                    <div class="enrolled-course-card">
+                        <img src="@matricula.ThumbnailUrl" alt="Thumbnail do curso" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 10px;" />
+
+                        <h4 class="enrolled-course-title">@matricula.CursoTitulo</h4>
+
+                        <p class="enrolled-course-description">
+                            Data da matrícula: @matricula.DataMatricula.ToShortDateString()
+                        </p>
+
+                        <a href="#" class="continue-course-button">Acessar Curso <i class="fas fa-arrow-right"></i></a>
                     </div>
                 }
                 @* <div class="enrolled-course-card">

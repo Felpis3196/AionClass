@@ -36,8 +36,10 @@ namespace AionClass.Frontend.Controllers
                     var perfil = await _userService.ObterPerfilAsync();
                     ViewBag.IsAdmin = perfil?.Role == "Admin";
                     ViewBag.IsInstructor = perfil?.Role == "Instructor";
+                    ViewBag.IsStudent = perfil?.Role == "Student";
+                    ViewBag.NotAuthed = perfil?.Role == null;
                 }
-                catch{}
+                catch {}
             }
             return View(cursos);
         }

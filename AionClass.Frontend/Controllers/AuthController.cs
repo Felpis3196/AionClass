@@ -73,6 +73,8 @@ public class AuthController : Controller
         }
     }
 
+    [HttpPost]
+    [ValidateAntiForgeryToken]
     public IActionResult Logout()
     {
         HttpContext.Session.Remove("JwtToken");

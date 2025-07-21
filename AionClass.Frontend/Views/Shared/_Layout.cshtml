@@ -35,14 +35,14 @@
                         <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="FAQ">FAQ</a></li>
-                        <li><a asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
-                        <li><a asp-area="" asp-controller="Matricula" asp-action="Index">Matricula PLACEHOLDER</a></li>
+                        <li><a asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>                        
                         <li><a asp-area="" asp-controller="Home" asp-action="Profile">Perfil</a></li>
+                        <li><a href="#contact">Contato</a></li>
                         @if ((ViewBag.IsAdmin ?? false))
                         {
                             <li><a asp-area="" asp-controller="Usuario" asp-action="Index">Usuario</a></li>
+                            <li><a asp-area="" asp-controller="Matricula" asp-action="Index">Matricula </a></li>
                         }
-                        <li><a href="#contact">Contato</a></li>
                     </ul>
                 </div>
 

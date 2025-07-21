@@ -194,7 +194,6 @@ C:\Users\Tainara\Desktop\AionClass\AionClass.Frontend\obj\Debug\net9.0\compresse
 C:\Users\Tainara\Desktop\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wohn7o6l6h-p4wd41o4ai.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Home\Cursos.cshtml.rz.scp.css
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Home\Profile.cshtml.rz.scp.css
-C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\ft0isbybr1-a2af7wm2jd.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\AionClass.Frontend.csproj.AssemblyReference.cache
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\Humanizer.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
@@ -423,10 +422,13 @@ C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Auth\Login.cshtml.rz.scp.css
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Auth\Register.cshtml.rz.scp.css
-C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wruf0lcjkb-6ccq6adtei.gz
-C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wohn7o6l6h-6ccq6adtei.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\rpswa.dswa.cache.json
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Curso\Index.cshtml.rz.scp.css
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\ft0isbybr1-rclbjfu24t.gz
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Matricula\Index.cshtml.rz.scp.css
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wruf0lcjkb-leqxsjjj3w.gz
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wohn7o6l6h-leqxsjjj3w.gz

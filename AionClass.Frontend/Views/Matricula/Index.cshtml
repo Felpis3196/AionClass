@@ -7,40 +7,37 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+@if (QuantidadeMatriculas < 1)
+{
+    <div class="alert alert-info">Sem Matrículas Ainda</div>
+}
+
+<table class="table text-black">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Curso)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DataMatricula)
-            </th>
-            <th></th>
+            <th>ID</th>
+            <th>Curso ID</th>
+            <th>Data da Matrícula</th>
+            <th>Usuário</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
-        @if (QuantidadeMatriculas < 1)
+        @foreach (var item in Model)
         {
-            <p>Sem Matriculas Ainda</p>
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CursoId</td>
+                <td>@item.DataMatricula.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@item.ApplicationUserId</td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post"
+                          onsubmit="return confirm('Tem certeza que deseja excluir esta matrícula?');"
+                          style="display:inline">
+                        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                    </form>
+                </td>
+            </tr>
         }
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Curso.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataMatricula)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
     </tbody>
 </table>

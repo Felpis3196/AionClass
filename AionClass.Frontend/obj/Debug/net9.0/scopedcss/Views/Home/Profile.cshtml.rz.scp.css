@@ -117,7 +117,7 @@ body.profile-page-body[b-yi74lz9wfa] {
 }
 
 .profile-nav-item.active[b-yi74lz9wfa] {
-    background-color: rgba(132, 0, 255, 0.644); /* Fundo roxo mais forte para ativo */
+    background-color: rgba(132, 0, 255, 0.2); /* Fundo roxo mais forte para ativo */
     color: var(--roxo-principal);
     border-left-color: var(--roxo-principal);
     font-weight: bold;
