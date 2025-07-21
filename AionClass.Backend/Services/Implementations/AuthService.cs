@@ -116,7 +116,7 @@ namespace AionClass.Backend.Services.Implementations
 
             if (!result.Succeeded)
             {
-                var errors = string.Join("; ", result.Errors.Select(e => e.Description));
+                var errors = string.Join("; ", result.Errors.Select(e => $"{e.Code}: {e.Description}"));
                 return new AuthResponse { Success = false, Message = errors };
             }
 

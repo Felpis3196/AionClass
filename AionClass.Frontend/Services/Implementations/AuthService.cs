@@ -68,14 +68,19 @@ namespace AionClass.Frontend.Services.Implementations
                 var response = await _httpClient.PostAsJsonAsync("api/Auth/register", request);
                 var responseBody = await response.Content.ReadAsStringAsync();
 
-                Console.WriteLine($"Response: {responseBody}");
+                Console.WriteLine("Resposta recebida do servidor: " + responseBody);
 
                 if (!response.IsSuccessStatusCode)
                 {
                     throw new ApplicationException($"Erro no registro: {responseBody}");
                 }
 
-                var content = JsonSerializer.Deserialize<AuthResponse>(responseBody);
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+
+                var content = JsonSerializer.Deserialize<AuthResponse>(responseBody, options);
 
                 if (content == null || !content.Success)
                 {
@@ -93,6 +98,7 @@ namespace AionClass.Frontend.Services.Implementations
                 throw new Exception("Erro ao processar a resposta de registro.", ex);
             }
         }
+
 
         public async Task LogoutAsync()
         {
