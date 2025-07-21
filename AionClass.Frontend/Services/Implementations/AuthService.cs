@@ -59,8 +59,6 @@ namespace AionClass.Frontend.Services.Implementations
                 throw new Exception("Erro ao processar a resposta de login.", ex);
             }
         }
-
-
         public async Task<string> RegisterAsync(RegisterRequest request)
         {
             try
@@ -98,7 +96,6 @@ namespace AionClass.Frontend.Services.Implementations
                 throw new Exception("Erro ao processar a resposta de registro.", ex);
             }
         }
-
 
         public async Task LogoutAsync()
         {

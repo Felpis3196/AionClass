@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AionClass.Frontend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02089774042d9bc972aa2603890b7751f1b56b37")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+003bb1bda35a61f5ced3c5c6d670c429960ca1f5")]
 [assembly: System.Reflection.AssemblyProductAttribute("AionClass.Frontend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AionClass.Frontend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
