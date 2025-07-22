@@ -78,7 +78,7 @@ public class AuthController : Controller
     public IActionResult Logout()
     {
         HttpContext.Session.Remove("JwtToken");
-        return RedirectToAction("Login");
+        return RedirectToAction("Index", "Home");
     }
 
     private string BuildFullErrorMessage(Exception ex)

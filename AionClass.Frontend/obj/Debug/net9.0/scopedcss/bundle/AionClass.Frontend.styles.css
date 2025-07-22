@@ -1907,3 +1907,14 @@ button.accept-policy[b-z0mjp0m86i] {
   line-height: 60px;
 }
 
+.custom-link[b-z0mjp0m86i] {
+    color: white !important;
+    text-decoration: none !important;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+    margin:1rem
+}
+
+    .custom-link:hover[b-z0mjp0m86i] {
+        color: #b388ff !important;
+    }

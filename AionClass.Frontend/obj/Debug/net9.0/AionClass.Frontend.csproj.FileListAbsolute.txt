@@ -400,8 +400,6 @@ C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Curso\Index.cshtml.rz.scp.css
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\ft0isbybr1-rclbjfu24t.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\scopedcss\Views\Matricula\Index.cshtml.rz.scp.css
-C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wruf0lcjkb-leqxsjjj3w.gz
-C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wohn7o6l6h-leqxsjjj3w.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\mg1fkpys2i-t1cqhe9u97.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\25sy97zogm-sejl45xvog.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\y4fx6ngmy2-xvp3kq03qx.gz
@@ -432,3 +430,5 @@ C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\4xf9q7j7m4-m9qm4tazc0.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\jc8hsw01ds-jjsuc0puko.gz
 C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\foef4ylke3-9vr69e8ynj.gz
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wruf0lcjkb-mqzc3oe33s.gz
+C:\Users\fegri\OneDrive\Área de Trabalho\AionClass\AionClass.Frontend\obj\Debug\net9.0\compressed\wohn7o6l6h-mqzc3oe33s.gz

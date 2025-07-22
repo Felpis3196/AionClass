@@ -42,3 +42,14 @@ button.accept-policy {
   line-height: 60px;
 }
 
+.custom-link {
+    color: white !important;
+    text-decoration: none !important;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+    margin:1rem
+}
+
+    .custom-link:hover {
+        color: #b388ff !important;
+    }

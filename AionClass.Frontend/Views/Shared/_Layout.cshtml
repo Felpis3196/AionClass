@@ -5,16 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AionClass.Frontend</title>
     <script type="importmap"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/faq.css" />
     <link rel="stylesheet" href="~/AionClass.Frontend.styles.css" asp-append-version="true" />
 </head>
 @{
-    
     var bodyClass = ViewData["BodyClass"] as string ?? "background-geral";
 }
-<body class="@bodyClass"> <div class="container">
+<body class="@bodyClass">
+    <div class="container">
+
+        <nav class="navbar w-100 bg-none">
+            <div class="container-fluid">
+                <div>
+                    <a class="bg-none"><img src="~/img/aion.png" style="height:90px; width:90px"/></a>
+                </div>
+                <div class="custom-nav">
+                    <a href="@Url.Action("Index", "Home")"
+                       style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
+                       onmouseover="this.style.color='#b388ff'"
+                       onmouseout="this.style.color='white'">
+                        Home
+                    </a>
+
+                    <a href="@Url.Action("Privacy", "Home")"
+                       style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
+                       onmouseover="this.style.color='#b388ff'"
+                       onmouseout="this.style.color='white'">
+                        Privacidade
+                    </a>
+
+                    <a href="@Url.Action("FAQ", "Home")"
+                       style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
+                       onmouseover="this.style.color='#b388ff'"
+                       onmouseout="this.style.color='white'">
+                        FAQ
+                    </a>
+
+                    <a href="@Url.Action("Index", "Curso")"
+                       style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
+                       onmouseover="this.style.color='#b388ff'"
+                       onmouseout="this.style.color='white'">
+                        Cursos
+                    </a>
+
+                    <a href="@Url.Action("Profile", "Home")"
+                       style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
+                       onmouseover="this.style.color='#b388ff'"
+                       onmouseout="this.style.color='white'">
+                        Perfil
+                    </a>
+
+                    <a href="#contact"
+                       style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
+                       onmouseover="this.style.color='#b388ff'"
+                       onmouseout="this.style.color='white'">
+                        Contato
+                    </a>
+
+                    @if ((ViewBag.IsAdmin ?? false))
+                    {
+                        <a href="@Url.Action("Index", "Usuario")"
+                           style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
+                           onmouseover="this.style.color='#b388ff'"
+                           onmouseout="this.style.color='white'">
+                            Usuario
+                        </a>
+
+                        <a href="@Url.Action("Index", "Matricula")"
+                           style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
+                           onmouseover="this.style.color='#b388ff'"
+                           onmouseout="this.style.color='white'">
+                            Matricula
+                        </a>
+                    }
+
+                </div>
+                <div>
+                    <a asp-area="" asp-controller="Home" asp-action="Profile" class=""
+                       style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
+                       onmouseover="this.style.color='#b388ff'"
+                       onmouseout="this.style.color='white'">
+                        <i class="fas fa-user fa-2x"></i> Perfil
+                    </a>
+                </div>
+            </div>
+        </nav>
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -35,7 +114,7 @@
                         <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="FAQ">FAQ</a></li>
-                        <li><a asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>                        
+                        <li><a asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
                         <li><a asp-area="" asp-controller="Home" asp-action="Profile">Perfil</a></li>
                         <li><a href="#contact">Contato</a></li>
                         @if ((ViewBag.IsAdmin ?? false))
