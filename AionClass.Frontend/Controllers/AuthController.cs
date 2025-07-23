@@ -1,7 +1,8 @@
 ﻿using AionClass.Frontend.Models.Auth;
 using Frontend.Services.Interfaces;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 public class AuthController : Controller
 {
@@ -75,11 +76,17 @@ public class AuthController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult Logout()
+    public async Task<IActionResult> Logout()
     {
+        // Remove token customizado da sessão
         HttpContext.Session.Remove("JwtToken");
+
+        // Desloga o usuário da autenticação do ASP.NET Identity
+        await HttpContext.SignOutAsync();
+
         return RedirectToAction("Index", "Home");
     }
+
 
     private string BuildFullErrorMessage(Exception ex)
     {

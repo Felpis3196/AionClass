@@ -25,7 +25,12 @@
                 <li><a href="#security" class="profile-nav-item" data-section="security"><i class="fas fa-lock"></i> Segurança</a></li>
                 <li><a asp-action="Login" asp-controller="Auth">Login</a></li>
                 <li><a asp-action="Register" asp-controller="Auth">Register</a></li>
-                <li><a asp-action="Logout" asp-controller="Auth">Sair</a></li>
+                <form asp-action="Logout" asp-controller="Auth" method="post" id="logoutForm" style="display:none;">
+                    @Html.AntiForgeryToken()
+                </form>
+                <li>
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Sair</a>
+                </li>
             </ul>
         </nav>
     </aside>
@@ -35,20 +40,38 @@
             <h3 class="section-title">Meu Perfil</h3>
             <p class="section-description">Gerencie suas informações pessoais.</p>
 
-            <form class="profile-form p-2">
+            <form asp-action="EditPerfil" asp-controller="Usuario" method="post" class="profile-form p-2">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="Id" value="@Model.Id" />
+
                 <div class="form-group">
-                    <label for="fullName">Nome Completo</label>
-                    <input type="text" id="fullName" value="@($"{Model.PrimeiroNome} {Model.Sobrenome}")" placeholder="Seu nome completo" />
+                    <label for="PrimeiroNome">Nome</label>
+                    <input type="text" id="PrimeiroNome" name="PrimeiroNome" value="@Model.PrimeiroNome" placeholder="Seu primeiro nome" />
+                </div>
+
+                <div class="form-group">
+                    <label for="Sobrenome">Sobrenome</label>
+                    <input type="text" id="Sobrenome" name="Sobrenome" value="@Model.Sobrenome" placeholder="Seu sobrenome" />
                 </div>
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" value="@Model.Email" placeholder="Seu endereço de email" disabled />
+                    <input type="email" id="email" name="Email" value="@Model.Email" placeholder="Seu endereço de email" />
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Telefone</label>
+                    <input type="text" id="phoneNumber" name="PhoneNumber" value="@Model.PhoneNumber" placeholder="Seu telefone" />
+                </div>
+
+                <div class="form-group">
+                    <label for="avatar">Avatar (URL da imagem)</label>
+                    <input type="text" id="avatar" name="Avatar" value="@Model.Avatar" placeholder="Link da sua imagem de perfil" />
                 </div>
 
                 <div class="form-group">
                     <label for="role">Tipo de Usuário</label>
-                    <input type="text" id="role" value="@Model.Role" placeholder="Tipo de usuário" disabled />
+                    <input type="text" id="role" name="Role" value="@Model.Role" placeholder="Tipo de usuário" readonly />
                 </div>
 
                 <button type="submit" class="save-button">Salvar Alterações</button>

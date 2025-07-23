@@ -50,6 +50,7 @@ namespace AionClass.Frontend.Services.Implementations
             {
                 var response = await _httpClient.GetAsync($"api/User/{id}");
                 response.EnsureSuccessStatusCode();
+                Console.WriteLine(response);
                 return await response.Content.ReadFromJsonAsync<ApplicationUser>();
             }
             catch (HttpRequestException ex)

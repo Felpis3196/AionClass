@@ -22,7 +22,6 @@ namespace AionClass.Backend.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAll()
         {
             var user = await _userService.ObterTodosAsync();
@@ -31,7 +30,6 @@ namespace AionClass.Backend.Controllers
 
 
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetById(string id)
         {
             var user = await _userService.ObterPorIdAsync(id);
@@ -42,7 +40,6 @@ namespace AionClass.Backend.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([FromBody] ApplicationUser novoUsuario)
         {
             if (!ModelState.IsValid)
@@ -53,7 +50,6 @@ namespace AionClass.Backend.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(string id)
         {
             var sucesso = await _userService.DeletarAsync(id);
@@ -64,7 +60,6 @@ namespace AionClass.Backend.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(string id, [FromBody] ApplicationUser userAtualizado)
         {
             if (!ModelState.IsValid)

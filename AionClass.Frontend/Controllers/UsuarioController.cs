@@ -1,4 +1,5 @@
 ﻿using AionClass.Frontend.Models;
+using AionClass.Frontend.Models.DTO;
 using AionClass.Frontend.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -49,6 +50,29 @@ namespace AionClass.Frontend.Controllers
             var usuario = await _userService.ObterPorIdAsync(id);
             if (usuario == null)
                 return NotFound();
+
+            return View(usuario);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditPerfil(UserPerfilViewModel usuario)
+        {
+            if (!string.IsNullOrEmpty(usuario.Id))
+            {
+                var user = await _userService.ObterPorIdAsync(usuario.Id);
+                if (user == null) return NotFound();
+
+                // Atualiza apenas campos permitidos
+                user.PrimeiroNome = usuario.PrimeiroNome;
+                user.Sobrenome = usuario.Sobrenome;
+                user.Email = usuario.Email;
+                user.PhoneNumber = usuario.PhoneNumber;
+                user.Avatar = usuario.Avatar;
+
+                await _userService.AtualizarAsync(user.Id, user);
+                return RedirectToAction("Profile", "Home");
+            }
 
             return View(usuario);
         }
