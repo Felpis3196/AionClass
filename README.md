@@ -1,18 +1,12 @@
 
-
------
-
-````markdown
 #  AionClass - Plataforma de Cursos de Programação (Full-Stack)
 
 Este projeto é uma **plataforma de cursos online robusta e escalável**, desenvolvida com foco em **C#/.NET e tecnologias web modernas**. Ele demonstra proficiência sólida em:
 
 * **Desenvolvimento Backend com ASP.NET Core:** Construção de **APIs RESTful** seguras e de alta performance, utilizando as melhores práticas do ASP.NET Core.
-* **Gestão de Autenticação e Autorização:** Implementação de um sistema de segurança robusto com **ASP.NET Core Identity** e **JSON Web Tokens (JWT Bearer)** para
-controle de acesso granular e proteção de rotas.
+* **Gestão de Autenticação e Autorização:** Implementação de um sistema de segurança robusto com **ASP.NET Core Identity** e **JSON Web Tokens (JWT Bearer)** para controle de acesso granular e proteção de rotas.
 * **Persistência de Dados com Entity Framework Core:** Modelagem e interação eficiente com banco de dados **PostgreSQL**, utilizando convenções e migrações do EF Core.
-* **Arquitetura Orientada a Serviços:** Aplicação de princípios de Injeção de Dependência (`AddScoped<Interface, Implementation>`) para promover a modularidade, testabilidade e
-separação de responsabilidades (ex: `AuthService`, `CursoService`, `MatriculaService`, `UserService`).
+* **Arquitetura Orientada a Serviços:** Aplicação de princípios de Injeção de Dependência (`AddScoped<Interface, Implementation>`) para promover a modularidade, testabilidade e separação de responsabilidades (ex: `AuthService`,`CursoService`, `MatriculaService`, `UserService`).
 * **Boas Práticas de Segurança:** Configuração de **HTTPS**, validação rigorosa de tokens JWT e manipulação segura de dados sensíveis.
 * **Desenvolvimento Frontend Web (Estrutura):** Habilidades em **HTML, CSS e JavaScript** para construção da interface de usuário, garantindo uma experiência responsiva e intuitiva.
 
@@ -109,5 +103,4 @@ Sua colaboração é muito valorizada! Se você tem interesse em aprimorar este 
 
 * **Felpis3196** - [Perfil no GitHub](https://github.com/Felpis3196)
 
----
-````
+
