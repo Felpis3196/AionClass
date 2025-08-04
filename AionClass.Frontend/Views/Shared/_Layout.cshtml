@@ -30,12 +30,7 @@
                         Home
                     </a>
 
-                    <a href="@Url.Action("Privacy", "Home")"
-                       style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
-                       onmouseover="this.style.color='#b388ff'"
-                       onmouseout="this.style.color='white'">
-                        Privacidade
-                    </a>
+    
 
                     <a href="@Url.Action("FAQ", "Home")"
                        style="color: white; text-decoration: none; margin: 1rem; transition: color 0.3s ease;"
@@ -101,37 +96,48 @@
 
     @if (!(ViewData["HideFooter"] as bool? ?? false))
     {
-        <footer class="aion-footer">
-            <div class="aion-footer-container">
-                <div class="aion-footer-section aion-footer-brand">
-                    <h3 class="aion-footer-heading">AionClass</h3>
-                    <p>&copy; @DateTime.Now.Year AionClass. Todos os direitos reservados.</p>
-                </div>
+       <footer class="aion-footer">
+    <div class="aion-footer-container">
+        <div class="aion-footer-section aion-footer-brand">
+            <h3 class="aion-footer-heading">AionClass</h3>
+            <p>&copy; @DateTime.Now.Year AionClass. Todos os direitos reservados.</p>
+        </div>
 
-                <div class="aion-footer-section aion-footer-links">
-                    <h3 class="aion-footer-heading">Links Rápidos</h3>
-                    <ul>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="FAQ">FAQ</a></li>
-                        <li><a asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
-                        <li><a asp-area="" asp-controller="Home" asp-action="Profile">Perfil</a></li>
-                        <li><a href="#contact">Contato</a></li>
-                        @if ((ViewBag.IsAdmin ?? false))
-                        {
-                            <li><a asp-area="" asp-controller="Usuario" asp-action="Index">Usuario</a></li>
-                            <li><a asp-area="" asp-controller="Matricula" asp-action="Index">Matricula </a></li>
-                        }
-                    </ul>
-                </div>
+        <div class="aion-footer-section aion-footer-links">
+            <h3 class="aion-footer-heading">Links Rápidos</h3>
+            <ul>
+                <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="FAQ">FAQ</a></li>
+                <li><a asp-area="" asp-controller="Curso" asp-action="Index">Cursos</a></li>
+                <li><a asp-area="" asp-controller="Home" asp-action="Profile">Perfil</a></li>
+                <li><a href="#contact">Contato</a></li>
+                @if ((ViewBag.IsAdmin ?? false))
+                {
+                    <li><a asp-area="" asp-controller="Usuario" asp-action="Index">Usuário</a></li>
+                    <li><a asp-area="" asp-controller="Matricula" asp-action="Index">Matrícula</a></li>
+                }
+            </ul>
+        </div>
 
-                <div class="aion-footer-section aion-footer-contact">
-                    <h3 class="aion-footer-heading">Fale Conosco</h3>
-                    <p>Email: <a href="mailto:contato@aionclass.com">contato@aionclass.com</a></p>
-                    <p>WhatsApp: <a href="https://wa.me/5511999999999" target="_blank">(11) 99999-9999</a></p>
-                </div>
-            </div>
-        </footer>
+        <div class="aion-footer-section aion-footer-social"> @* Nova coluna para Redes Sociais *@
+            <h3 class="aion-footer-heading">Siga-nos</h3>
+            <ul class="social-icons">
+                <li><a href="https://facebook.com/aionclass" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a></li>
+                <li><a href="https://instagram.com/aionclass" target="_blank" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a></li>
+                <li><a href="https://twitter.com/aionclass" target="_blank" aria-label="Twitter"><i class="fab fa-twitter fa-lg"></i></a></li>
+                <li><a href="https://linkedin.com/company/aionclass" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-lg"></i></a></li>
+                <li><a href="https://youtube.com/aionclass" target="_blank" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="aion-footer-section aion-footer-contact">
+            <h3 class="aion-footer-heading">Fale Conosco</h3>
+            <p>Email: <a href="mailto:contato@aionclass.com">contato@aionclass.com</a></p>
+            <p>WhatsApp: <a href="https://wa.me/5511999999999" target="_blank">(11) 99999-9999</a></p>
+        </div>
+    </div>
+</footer>
     }
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

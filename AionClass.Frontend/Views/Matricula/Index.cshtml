@@ -1,43 +1,53 @@
 ﻿@model IEnumerable<AionClass.Frontend.Models.Matricula>
 
 @{
-    ViewData["Title"] = "Index";
-    int QuantidadeMatriculas = Model.Count();
+    ViewData["Title"] = "Matrículas";
+    var quantidadeMatriculas = Model?.Count() ?? 0;
 }
 
-<h1>Index</h1>
+<div class="container mt-4">
+    <h1 class="mb-4">@ViewData["Title"]</h1>
 
-@if (QuantidadeMatriculas < 1)
-{
-    <div class="alert alert-info">Sem Matrículas Ainda</div>
-}
-
-<table class="table text-black">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Curso ID</th>
-            <th>Data da Matrícula</th>
-            <th>Usuário</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.CursoId</td>
-                <td>@item.DataMatricula.ToString("dd/MM/yyyy HH:mm")</td>
-                <td>@item.ApplicationUserId</td>
-                <td>
-                    <form asp-action="Delete" asp-route-id="@item.Id" method="post"
-                          onsubmit="return confirm('Tem certeza que deseja excluir esta matrícula?');"
-                          style="display:inline">
-                        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    @if (quantidadeMatriculas < 1)
+    {
+        <div class="alert alert-info" role="alert">
+            Nenhuma matrícula registrada no momento.
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Usuário</th>
+                        <th scope="col" class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.CursoId</td> <!-- Sugestão: exibir nome do curso, se disponível -->
+                            <td>@item.DataMatricula.ToString("dd/MM/yyyy HH:mm")</td>
+                            <td>@item.ApplicationUserId</td> <!-- Sugestão: exibir nome do usuário, se disponível -->
+                            <td class="text-center">
+                                <form asp-action="Delete" asp-route-id="@item.Id" method="post"
+                                      class="d-inline"
+                                      onsubmit="return confirm('Tem certeza que deseja excluir esta matrícula?');">
+                                    <button type="submit" class="btn btn-sm btn-danger" aria-label="Excluir matrícula @item.Id">
+                                        <i class="bi bi-trash"></i> Excluir
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

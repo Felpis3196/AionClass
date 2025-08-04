@@ -3,122 +3,103 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 @{
-    ViewData["Title"] = "Index";
-
+    ViewData["Title"] = "Cursos";
     int QuantidadeCursos = Model.Count();
 }
 
-<h1>Index</h1>
+<h1 class="mb-4">Lista de Cursos</h1>
+
 @if (TempData["Mensagem"] != null)
 {
-    <div class="alert alert-info">
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
         @TempData["Mensagem"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
     </div>
 }
 
 @if ((ViewBag.IsAdmin ?? false) || (ViewBag.IsInstructor ?? false))
 {
-    <a asp-action="Create" class="btn rounded-circle shadow-lg"
-       style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; font-size: 28px; text-align: center; line-height: 44px; z-index: 1050; background-color: #6f42c1"
-       title="Novo Curso">
-        +
-    </a>
+    <a asp-action="Create"
+   class="btn btn-primary rounded-circle shadow-lg position-fixed d-flex justify-content-center align-items-center"
+   style="bottom: 20px; right: 20px; width: 60px; height: 60px; z-index: 1050; background-color: #5c00a7; border: none;"
+   title="Novo Curso"
+   aria-label="Criar novo curso">
+    <i class="bi bi-plus-lg"></i>
+</a>
 }
 
-<table class="table-responsive text-black">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Level)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ThumbnailUrl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsActive)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (QuantidadeCursos < 1)
-        {
-            <p>Sem Cursos Disponiveis</p>
-        }
-        @foreach (var item in Model)
-        {
+<div class="table-responsive">
+    <table class="table table-hover align-middle text-black">
+        <thead class="table-dark">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Category)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Level)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ThumbnailUrl)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreatedAt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.IsActive)
-                </td>
-                <td>
-                    @if ((ViewBag.IsAdmin ?? false) || (ViewBag.IsInstructor ?? false))
-                    {
-                        <div class="dropdown">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton-@item.Id" data-bs-toggle="dropdown" aria-expanded="false">
-                                
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-@item.Id">
-                                <li>
-                                    <a class="dropdown-item text-purple-600" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
-                                </li>
-                                <li>
-                                    <form asp-action="Delete" asp-route-id="@item.Id" method="post"
-                                          onsubmit="return confirm('Tem certeza que deseja excluir este curso?');">
-                                        <button type="submit" class="dropdown-item text-purple-600">Excluir</button>
-                                    </form>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item text-purple-600" asp-action="Matricular" asp-route-id="@item.Id">Matricular</a>
-                                </li>
-                            </ul>
-                        </div>
-                    }
-                    else if (ViewBag.IsStudent ?? false)
-                    {
-                        <div class="dropdown">
-                            <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton-@item.Id" data-bs-toggle="dropdown" aria-expanded="false">
-                                Ações
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton-@item.Id">
-                                <li>
-                                    <a class="dropdown-item text-purple-600" asp-action="Matricular" asp-route-id="@item.Id">Matricular</a>
-                                </li>
-                            </ul>
-                        </div>
-                    }
-                </td>
+                <th>@Html.DisplayNameFor(model => model.Title)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.Category)</th>
+                <th>@Html.DisplayNameFor(model => model.Level)</th>
+                <th>@Html.DisplayNameFor(model => model.ThumbnailUrl)</th>
+                <th>@Html.DisplayNameFor(model => model.CreatedAt)</th>
+                <th>@Html.DisplayNameFor(model => model.IsActive)</th>
+                <th class="text-center">Ações</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @if (QuantidadeCursos < 1)
+            {
+                <tr>
+                    <td colspan="8" class="text-center text-muted py-4">
+                        <em>Sem cursos disponíveis no momento.</em>
+                    </td>
+                </tr>
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => item.Title)</td>
+                        <td>@Html.DisplayFor(m => item.Description)</td>
+                        <td>@Html.DisplayFor(m => item.Category)</td>
+                        <td>@Html.DisplayFor(m => item.Level)</td>
+                        <td>
+                            <img src="@item.ThumbnailUrl" alt="Miniatura do curso" style="max-width: 80px;" class="img-thumbnail" />
+                        </td>
+                        <td>@item.CreatedAt.ToString("dd/MM/yyyy")</td>
+                        <td>
+                            <span class="badge @(item.IsActive ? "bg-success" : "bg-danger")">
+                                @(item.IsActive ? "Ativo" : "Inativo")
+                            </span>
+                        </td>
+                        <td class="text-center">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" id="dropdown-@item.Id" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Ações
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown-@item.Id">
+                                    @if ((ViewBag.IsAdmin ?? false) || (ViewBag.IsInstructor ?? false))
+                                    {
+                                        <li>
+                                            <a class="dropdown-item text-purple-600" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                        
+                                        </li>
+                                        <li>
+                                            <form asp-action="Delete" asp-route-id="@item.Id" method="post"
+                                            onsubmit="return confirm('Tem certeza que deseja excluir este curso?');">
+                                            <button type="submit" class="dropdown-item text-purple-600">Excluir</button>
+                                            </form>
+                                        </li>
+                                    }
+                                    <li>
+                                        <a class="dropdown-item text-purple-600" asp-action="Matricular" asp-route-id="@item.Id">
+                                             Matricular
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

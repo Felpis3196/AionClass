@@ -9,56 +9,77 @@
             Acesse agora nossos cursos e comece a aprender as tecnologias <br />
             mais usadas no mercado, totalmente sem custo algum!
         </p>
-        <a asp-action="Index" asp-controller="Curso" 
-        style="background-color: white; color: #7c3aed; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s ease;">
-        QUERO ESTUDAR DE GRAÇA
+        <a asp-action="Index" asp-controller="Curso"
+            style="background-color: white; color: #7c3aed; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s ease;">
+            QUERO ESTUDAR DE GRAÇA
         </a>
         <br />
         <div class="etiqueta rounded">Sua jornada na programação começa aqui.</div>
     </div>
 
-    <!-- CONTEÚDO QUE OCUPA 75% DA TELA -->
-    <section class="conteudo-principal rounded-2 m-5" style="background-color: #121214">
-        <div class="tag">Para quem é?</div>
-        <h1>Independente do seu nível o AionClass é para você</h1>
+    <!-- METODOLOGIA -->
+    <section class="como-funciona-section rounded-2 m-5">
+        <div class="tag">Nossa Metodologia</div>
+        <h1>Como o AionClass impulsiona sua carreira?</h1>
 
-        <div class="cards">
-            <div class="card text-white text-start" style="background-color: #121214">
-                <h2>Para aprender do zero</h2>
-                <p>Fundamentos da programação web HTML, CSS, Git, banco de dados, back-end e front-end.</p>
+        <div class="cards-metodologia">
+            <div class="card-metodologia text-white text-start animated-card delay-1" style="background-color: #03000c">
+                <div class="icon-wrapper">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h2>Aprendizado Prático</h2>
+                <p>Projetos reais e desafios que simulam o dia a dia do desenvolvedor para você aprender fazendo.</p>
             </div>
-            <div class="card text-white text-start" style="background-color: #121214">
-                <h2>Para se especializar</h2>
-                <p>Trilhas de React, React Native e Node.js com ferramentas e tecnologias alinhadas com o mercado.</p>
+            <div class="card-metodologia text-white text-start animated-card delay-2" style="background-color: #03000c">
+                <div class="icon-wrapper">
+                    <i class="fas fa-users-line"></i>
+                </div>
+                <h2>Comunidade Ativa</h2>
+                <p>Troque experiências, tire dúvidas e faça networking com outros alunos e mentores em nossa comunidade
+                    exclusiva.</p>
             </div>
-            <div class="card text-white text-start" style="background-color: #121214">
-                <h2>Para se manter atualizado</h2>
-                <p>Masterclass exclusivas, encontros por voz com convidados e newsletter com novidades do mercado.</p>
+            <div class="card-metodologia text-white text-start animated-card delay-3" style="background-color: #03000c">
+                <div class="icon-wrapper">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <h2>Foco no Mercado</h2>
+                <p>Currículo atualizado com as tecnologias mais demandadas, preparando você para as melhores oportunidades.</p>
             </div>
-        </div>
-
-        <div class="tag tag-bottom rounded">Também é para quem...</div>
-
-        <div class="benefits">
-            <div class="benefit">
-                <span class="check">✔</span>
-                <p>Quer fazer transição de carreira para a programação</p>
-            </div>
-            <div class="benefit">
-                <span class="check">✔</span>
-                <p>Quer ganhar melhores salários ou fazer um upgrade de carreira</p>
-            </div>
-            <div class="benefit">
-                <span class="check">✔</span>
-                <p>Quer conquistar uma vaga internacional</p>
-            </div>
-            <div class="benefit">
-                <span class="check">✔</span>
-                <p>Quer trabalhar de casa ou remoto</p>
+            <div class="card-metodologia text-white text-start animated-card delay-4" style="background-color: #03000c">
+                <div class="icon-wrapper">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h2>Suporte Dedicado</h2>
+                <p>Mentoria individualizada e suporte técnico para te guiar em cada etapa da sua jornada de aprendizado.</p>
             </div>
         </div>
     </section>
 
+  
+
+
+    <!-- DEPOIMENTOS -->
+  <section class="depoimentos-section rounded-2 m-5 text-center">
+    <div class="tag">Histórias Reais</div>
+    <h1 class="text-white">O que nossos alunos dizem?</h1>
+    <div class="d-flex justify-content-center gap-4 mt-4 flex-wrap">
+        <div class="depoimento-card p-4 rounded text-white" style="max-width:300px; background: rgba(255, 255, 255, 0.1);">
+            <p>"Graças ao AionClass consegui meu primeiro emprego como desenvolvedor em 6 meses!"</p>
+            <strong>- João, ex-aluno</strong>
+        </div>
+        <div class="depoimento-card p-4 rounded text-white" style="max-width:300px; background: rgba(255, 255, 255, 0.1);">
+            <p>"Os cursos são muito práticos e os mentores sempre ajudam quando preciso. Recomendo demais!"</p>
+            <strong>- Maria, aluna</strong>
+        </div>
+        <div class="depoimento-card p-4 rounded text-white" style="max-width:300px; background: rgba(255, 255, 255, 0.1);">
+            <p>"A comunidade é incrível, aprendi mais em 3 meses aqui do que em 1 ano sozinho."</p>
+            <strong>- Pedro, ex-aluno</strong>
+        </div>
+    </div>
+</section>
+
+
+    <!-- CTA FINAL -->
     <section class="conteudo-principal rounded-2 div-gradient m-5">
         <div class="w-100 h-100 d-flex justify-content-between align-items-center">
             <div>
@@ -68,13 +89,12 @@
                 </p>
             </div>
             <div>
-                <img src="/img/aion.png" style="height:120px; width:120px"/>
+                <img src="/img/aion.png" style="height:120px; width:120px" />
             </div>
             <div class="bg-white rounded-1 text-center m-1 pt-3 pb-3">
                 <a href="#" class="gradient-text-1 p-5 fs-5 fw-bold">PLANOS E CONDIÇÕES</a>
             </div>
         </div>
     </section>
-
 
 </section>

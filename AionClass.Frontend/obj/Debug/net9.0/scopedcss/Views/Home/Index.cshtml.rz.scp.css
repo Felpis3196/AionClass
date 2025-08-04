@@ -41,7 +41,7 @@ p[b-4e4ftaviyh] {
 
 .botao[b-4e4ftaviyh] {
     background-color: white;
-    color: #7c3aed;
+    color: #8e3aed;
     padding: 12px 25px;
     border-radius: 8px;
     text-decoration: none;
@@ -63,3 +63,69 @@ p[b-4e4ftaviyh] {
     display: inline-block;
     font-size: 0.9rem;
 }
+
+
+.cards-metodologia[b-4e4ftaviyh] {
+    display: flex; /* ou grid */
+    gap: 20px;
+    flex-wrap: wrap; /* Para quebrar em linhas menores */
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card-metodologia[b-4e4ftaviyh] {
+    flex: 1 1 280px; /* Flexibilidade para se adaptar a diferentes telas */
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transição para o hover */
+    opacity: 0; /* Começa invisível para a animação */
+    transform: translateY(20px); /* Começa ligeiramente abaixo */
+}
+
+.card-metodologia:hover[b-4e4ftaviyh] {
+    transform: translateY(-5px) scale(1.02); /* Efeito de elevação e leve aumento no hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.icon-wrapper[b-4e4ftaviyh] {
+    font-size: 4em; /* Tamanho do ícone */
+    color: #ffffff; /* Cor do ícone, ajuste conforme sua paleta */
+    margin-bottom: 20px;
+}
+
+/* Animação de fade-in e slide-up */
+@keyframes fadeInSlideUp-b-4e4ftaviyh {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animated-card[b-4e4ftaviyh] {
+    animation: fadeInSlideUp-b-4e4ftaviyh 0.8s ease-out forwards;
+}
+
+/* Atrasos para cada card */
+.animated-card.delay-1[b-4e4ftaviyh] { animation-delay: 0.1s; }
+.animated-card.delay-2[b-4e4ftaviyh] { animation-delay: 0.3s; }
+.animated-card.delay-3[b-4e4ftaviyh] { animation-delay: 0.5s; }
+.animated-card.delay-4[b-4e4ftaviyh] { animation-delay: 0.7s; }
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+    .cards-metodologia[b-4e4ftaviyh] {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-metodologia[b-4e4ftaviyh] {
+        width: 90%;
+    }
+}
+
+

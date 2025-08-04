@@ -1,1 +1,12 @@
-{"Version":1,"Hash":"uUAiBS5HTR6x80ApmQW+SCnE95F1HTRkTFEmf3PPwFA=","Source":"AionClass.Backend","BasePath":"_content/AionClass.Backend","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "uUAiBS5HTR6x80ApmQW+SCnE95F1HTRkTFEmf3PPwFA=",
+  "Source": "AionClass.Backend",
+  "BasePath": "_content/AionClass.Backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
