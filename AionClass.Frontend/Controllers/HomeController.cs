@@ -50,6 +50,11 @@ namespace AionClass.Frontend.Controllers
             return View();
         }
 
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> Profile()
         {
             var token = HttpContext.Session.GetString("JwtToken");

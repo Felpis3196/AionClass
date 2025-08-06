@@ -11,7 +11,7 @@
         <div class="profile-header-summary">
             <div class="form-group">
                 <label for="avatar">Foto de Perfil</label><br />
-                <img src="@Model.Avatar"  style="max-width: 150px; border-radius: 50%;" />
+                <img src="@Model.Avatar" style="max-width: 150px; border-radius: 50%;" />
             </div>
             <h2 class="profile-username">@($"{Model.PrimeiroNome} {Model.Sobrenome}")</h2>
             <p class="profile-welcome-message">Bem-vindo(a) de volta!</p>
@@ -23,13 +23,28 @@
                 <li><a href="#my-courses" class="profile-nav-item" data-section="my-courses"><i class="fas fa-book-open"></i> Meus Cursos</a></li>
                 <li><a href="#my-plan" class="profile-nav-item" data-section="my-plan"><i class="fas fa-crown"></i> Meu Plano</a></li>
                 <li><a href="#security" class="profile-nav-item" data-section="security"><i class="fas fa-lock"></i> Segurança</a></li>
-                <li><a asp-action="Login" asp-controller="Auth">Login</a></li>
-                <li><a asp-action="Register" asp-controller="Auth">Register</a></li>
-                <form asp-action="Logout" asp-controller="Auth" method="post" id="logoutForm" style="display:none;">
-                    @Html.AntiForgeryToken()
-                </form>
                 <li>
-                    <a href="javascript:document.getElementById('logoutForm').submit()">Sair</a>
+                    <a asp-action="Login" asp-controller="Auth"
+                       style="display: flex; align-items: center; gap: 10px; padding: 15px 30px; color: white; text-decoration: none; font-size: 1.1rem; border-left: 5px solid transparent; transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease; cursor: pointer;">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="Register" asp-controller="Auth"
+                       style="display: flex; align-items: center; gap: 10px; padding: 15px 30px; color: white; text-decoration: none; font-size: 1.1rem; border-left: 5px solid transparent; transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease; cursor: pointer;">
+                        <i class="fas fa-user-plus"></i> Register
+                    </a>
+                </li>
+                <li>
+                    <a asp-action="Logout" asp-controller="Auth"
+                       onclick="event.preventDefault(); document.getElementById('logoutForm').submit();"
+                       style="display: flex; align-items: center; padding: 15px 30px; color: white; text-decoration: none; font-size: 1.1rem; border-left: 5px solid transparent; transition: background-color 0.3s ease, color 0.3s ease, border-left-color 0.3s ease; cursor: pointer;">
+                        <i class="fas fa-sign-out-alt" style="margin-right: 15px;"></i> Sair
+                    </a>
+
+                    <form id="logoutForm" asp-action="Logout" asp-controller="Auth" method="post" style="display: none;">
+                        @Html.AntiForgeryToken()
+                    </form>
                 </li>
             </ul>
         </nav>

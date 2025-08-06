@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tainara\\Pictures\\AionClass\\AionClass.Frontend\\AionClass.Frontend.csproj": {}
+    "C:\\Users\\fegri\\OneDrive\\Área de Trabalho\\AionClass\\AionClass.Frontend\\AionClass.Frontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tainara\\Pictures\\AionClass\\AionClass.Frontend\\AionClass.Frontend.csproj": {
+    "C:\\Users\\fegri\\OneDrive\\Área de Trabalho\\AionClass\\AionClass.Frontend\\AionClass.Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tainara\\Pictures\\AionClass\\AionClass.Frontend\\AionClass.Frontend.csproj",
+        "projectUniqueName": "C:\\Users\\fegri\\OneDrive\\Área de Trabalho\\AionClass\\AionClass.Frontend\\AionClass.Frontend.csproj",
         "projectName": "AionClass.Frontend",
-        "projectPath": "C:\\Users\\Tainara\\Pictures\\AionClass\\AionClass.Frontend\\AionClass.Frontend.csproj",
-        "packagesPath": "C:\\Users\\Tainara\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tainara\\Pictures\\AionClass\\AionClass.Frontend\\obj\\",
+        "projectPath": "C:\\Users\\fegri\\OneDrive\\Área de Trabalho\\AionClass\\AionClass.Frontend\\AionClass.Frontend.csproj",
+        "packagesPath": "C:\\Users\\fegri\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fegri\\OneDrive\\Área de Trabalho\\AionClass\\AionClass.Frontend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Tainara\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\fegri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -104,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
